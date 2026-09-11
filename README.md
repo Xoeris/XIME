@@ -134,7 +134,7 @@ A self-contained music app-in-a-library (~11.7k LOC): `MusicEngine` + `MusicServ
 
 ### Terminal stack (`XIME.Terminal`)
 
-A complete in-app terminal (~9.4k LOC): Termux-derived emulator/session/view/text-selection layer (`externs.termux`), plus shell bootstrap, PTY natives, a foreground `TerminalService`, and an extra-keys row, with BusyBox binary assets (GPL, see licenses below).
+A complete in-app terminal (~9.4k LOC): Termux `terminal-emulator`/`terminal-view` layer <sup>[17]</sup> (`externs.termux`), plus shell bootstrap, PTY natives, a foreground `TerminalService`, and an extra-keys row, with BusyBox binary assets (GPL, see licenses below).
 
 ### Shader pack (`XIME.Graphics`)
 
@@ -192,11 +192,11 @@ The visual and interaction language of `XIME.UI` (layout grid, type scale, color
 
 Several `XIME.UI`/`XIME.Graphics` behaviors are modeled on the HyperOS (Xiaomi) visual language, as documented and tweaked by the HyperCeiler project <sup>[16]</sup>:
 
-- **Liquid Glass blur.** `LegacyBlur` implements a "Crystal liquid glass blur renderer" (`drawLiquidGlass`), continued by `AdaptiveBlur`'s mesh-warped "AURA" refraction, surfaced through `BlurLayout` — the frosted refractive sheet style of HyperOS system surfaces.
+- **Liquid Glass blur.** `LegacyBlur` implements a "Crystal liquid glass blur renderer" (`drawLiquidGlass`), continued by `AdaptiveBlur`'s mesh-warped "AURA" refraction, surfaced through `BlurLayout`, the frosted refractive sheet style of HyperOS system surfaces.
 - **Collapsing large title.** `HeaderMenu` implements the collapsing-toolbar pattern (expanded header collapsing to a compact bar with search) seen across HyperOS system apps.
 - **Spring motion feel.** `SpringInterpolator` targets the HyperOS motion feel for transitions.
 
-**Source:** ReChronoRain, [HyperCeiler — Make HyperOS Great Again](https://github.com/ReChronoRain/HyperCeiler) (LSPosed module covering HyperOS SystemUI, settings, launcher, and effects) <sup>[16]</sup>
+**Source:** ReChronoRain, [HyperCeiler, Make HyperOS Great Again](https://github.com/ReChronoRain/HyperCeiler) (LSPosed module covering HyperOS SystemUI, settings, launcher, and effects) <sup>[16]</sup>
 
 > **Scope note:** HyperOS styling is a visual/behavioral reference only. No HyperCeiler code is vendored in XIME, and none may be: HyperCeiler is AGPL-3.0, which is incompatible with this repository's Apache-2.0 first-party license. XIME's HyperOS-style components are clean-room implementations.
 
@@ -239,7 +239,7 @@ First-party XIME code is Copyright 2018-2026 Xoeris. Vendored components remain 
 
 | Component | License | Notes |
 |---|---|---|
-| Terminal emulation (in `XIME.Terminal`: Termux-derived emulator/view layer plus NOTICE-attributed Android Terminal Emulator code, Jack Palevich) | Apache License 2.0 | See `XIME.Terminal/NOTICE` |
+| Terminal emulation (in `XIME.Terminal`: Termux `terminal-emulator`/`terminal-view` layer, Apache-2.0 exception inside a GPLv3 repo, plus NOTICE-attributed Android Terminal Emulator code, Jack Palevich) | Apache License 2.0 | [termux/termux-app](https://github.com/termux/termux-app) <sup>[17]</sup>; see `XIME.Terminal/NOTICE` |
 | BusyBox binary assets (in `XIME.Terminal`) | GNU GPL v2.0 | Copyleft: distributing apps that link `XIME.Terminal` triggers GPL obligations. Source: https://busybox.net <sup>[7]</sup> |
 | erofs-utils v1.9.3 (in `XIME.Tools`) | GPL-2.0+ **OR** MIT (dual, per-file); XIME uses the MIT option | Vendored at `XIME.Tools/src/main/cpp/third_party/erofs-utils/`. Source: https://github.com/erofs/erofs-utils <sup>[8]</sup> |
 | e2fsprogs v1.47.4 libext2fs (in `XIME.Tools`) | LGPL v2 | Linking into non-GPL works permitted. Source: https://github.com/tytso/e2fsprogs <sup>[9]</sup> |
@@ -280,7 +280,8 @@ XIME is under active development alongside its consumer apps. The module set (no
 13. Android Developers. Material Design 3 in Compose (type scale). https://developer.android.com/develop/ui/compose/designsystems/material3
 14. Interaction Design Foundation. What is Color Harmony? https://ixdf.org/literature/topics/color-harmony
 15. Material Design. Responsive UI (layout grid). https://m2.material.io/design/layout/responsive-ui.html
-16. ReChronoRain. HyperCeiler — Make HyperOS Great Again (HyperOS SystemUI/settings/launcher effects reference; LSPosed module, AGPL-3.0). https://github.com/ReChronoRain/HyperCeiler
+16. ReChronoRain. HyperCeiler, Make HyperOS Great Again (HyperOS SystemUI/settings/launcher effects reference; LSPosed module, AGPL-3.0). https://github.com/ReChronoRain/HyperCeiler
+17. Termux. terminal-emulator / terminal-view libraries (Apache-2.0 exception inside the GPLv3 termux-app repo; the layer XIME.Terminal vendors). https://github.com/termux/termux-app
 
 ## License
 
