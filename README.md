@@ -464,6 +464,16 @@ The visual and interaction language of `XIME.UI` (layout grid, type scale, color
 **Palette API for extracting prominent colors from images.** Related to `XIME.UI`/`XIME.Imaging` tinting and adaptive visuals.
 **Source:** Android Developers, [Palette API](https://developer.android.com/develop/ui/views/graphics/palette-colors) <sup>[3]</sup>
 
+### Iconography
+
+The 166 `xoeris_*` vector drawables in `XIME.UI` are adapted (re-prefixed) glyphs from these icon libraries, all Apache-2.0 licensed:
+
+- **Material Symbols & Icons**, Google Fonts <sup>[18]</sup>
+- **Material Design Icons**, Pictogrammers <sup>[19]</sup>
+- **Iconify** icon sets (served under each collection's original license; MDI subset is Apache-2.0) <sup>[20]</sup>
+
+**Sources:** [fonts.google.com/icons](https://fonts.google.com/icons) · [pictogrammers.com/library/mdi](https://pictogrammers.com/library/mdi/) · [icon-sets.iconify.design](https://icon-sets.iconify.design/)
+
 ### HyperOS Visual Language
 
 Several `XIME.UI`/`XIME.Graphics` behaviors are modeled on the HyperOS (Xiaomi) visual language, as documented and tweaked by the HyperCeiler project <sup>[16]</sup>:
@@ -525,6 +535,7 @@ First-party XIME code is Copyright 2018-2026 Xoeris. Vendored components remain 
 | ncnn, prebuilt static libs (in `XIME.Core`) | BSD 3-Clause, © THL A29 / Tencent | https://github.com/Tencent/ncnn <sup>[10]</sup> |
 | rife-ncnn-vulkan, design reference for RIFE bridge (in `XIME.Core`) | MIT, © nihui | https://github.com/nihui/rife-ncnn-vulkan <sup>[11]</sup> |
 | Gson | Apache License 2.0 | https://github.com/google/gson <sup>[5]</sup> |
+| Icon glyphs (`xoeris_*` drawables: Material Symbols, MDI, Iconify collections) | Apache License 2.0 (per collection) | See [Iconography](#iconography) <sup>[18][19][20]</sup> |
 | Google Play Services (Location, Base) | Google APIs Terms | https://developers.google.com/android/guides/setup <sup>[6]</sup> |
 | AndroidX (Room, LiveData, Media, DynamicAnimation, Palette, Navigation) | Apache License 2.0 | https://developer.android.com/jetpack/androidx <sup>[1][3][4]</sup> |
 | Material Components | Apache License 2.0 | https://m2.material.io <sup>[2]</sup> |
@@ -558,6 +569,9 @@ XIME is under active development alongside its consumer apps. The module set (no
 15. Material Design. Responsive UI (layout grid). https://m2.material.io/design/layout/responsive-ui.html
 16. ReChronoRain. HyperCeiler, Make HyperOS Great Again (HyperOS SystemUI/settings/launcher effects reference; LSPosed module, AGPL-3.0). https://github.com/ReChronoRain/HyperCeiler
 17. Termux. terminal-emulator / terminal-view libraries (Apache-2.0 exception inside the GPLv3 termux-app repo; the layer XIME.Terminal vendors). https://github.com/termux/termux-app
+18. Google. Material Symbols & Icons. Apache License 2.0. https://fonts.google.com/icons
+19. Pictogrammers. Material Design Icons. Apache License 2.0. https://pictogrammers.com/library/mdi/
+20. Iconify. Icon sets (per-collection licenses). https://icon-sets.iconify.design/
 
 ## License
 
