@@ -233,13 +233,13 @@ flowchart TB
 ```mermaid
 flowchart LR
     subgraph Annotations["Annotations"]
-        E[@PeEntity + @PeId + @PeColumn]
-        D[@PeDao + @PeQuery + @PeInsert + @PeUpdate + @PeDelete]
-        DB[@PeDatabase]
+        E["@PeEntity + @PeId + @PeColumn"]
+        D["@PeDao + @PeQuery + @PeInsert + @PeUpdate + @PeDelete"]
+        DB["@PeDatabase"]
     end
     E --> PDB[PeroomDatabase\n+ Builder]
     D --> PDB
-    DB --> PDB2[@PeDatabase config]
+    DB --> PDB2["@PeDatabase config"]
     PDB --> Eng[PeroomEngine\nSQLite runtime]
     PDB --> Mig[PeMigration]
     PDB --> Inv[PeroomInvalidationTracker]
@@ -298,7 +298,8 @@ classDiagram
     class LayoutMorpher["LayoutMorpher\ntransitionName matching"]
     class ViewportMorpher["ViewportMorpher\nenter + return"]
     SpringAnimator --> SpringInterpolator
-    AnimatorHaptic2["AnimatorHaptic (XIME.Haptic)"] --> Animator
+    class AnimatorHaptic2["AnimatorHaptic (XIME.Haptic)"]
+    AnimatorHaptic2 --> Animator
 ```
 
 ### XIME.Haptic
