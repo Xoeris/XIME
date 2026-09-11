@@ -271,4 +271,4 @@ XIME is under active development alongside its consumer apps. The module set (no
 
 ## License
 
-XIME first-party code is **open source**, © 2026 Xoeris. Third-party and vendored components remain subject to their respective licenses as listed in [Third-Party Software & Licenses](#third-party-software--licenses) and the per-module `NOTICE` files (`XIME.Terminal/NOTICE`, `XIME.Tools/NOTICE`), which are authoritative in case of discrepancy.
+XIME first-party code is **open source under the Apache License 2.0** (© 2026 Xoeris) — see [LICENSE.md](LICENSE.md), which also documents the scope exclusions. Third-party and vendored components remain subject to their respective licenses as listed in [Third-Party Software & Licenses](#third-party-software--licenses) and the per-module `NOTICE` files (`XIME.Terminal/NOTICE`, `XIME.Tools/NOTICE`), which are authoritative in case of discrepancy. In short: everything is permissive **except `XIME.Terminal`** (BusyBox GPLv2) — exclude that module if your app must stay closed-source.
