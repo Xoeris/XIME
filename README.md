@@ -15,6 +15,7 @@ This is not a small utility library: the tree holds **~1,070 first-party code fi
 - [Background](#background)
 - [Module Map](#module-map)
 - [Dependency Architecture](#dependency-architecture)
+- [Module Architectures](#module-architectures)
 - [Featured Subsystems](#featured-subsystems)
 - [Tech Stack](#tech-stack)
 - [Design References](#design-references)
@@ -109,6 +110,281 @@ flowchart TB
 ```
 
 *Figure 1. XIME module dependency graph, derived from each module's `build.gradle`. Arrows point from dependency to dependent. `XIME.Location` and `XIME.Net` are standalone leaves on Play Services.*
+
+## Module Architectures
+
+Class-level maps for every module, derived from the sources. Arrows point from dependency/base toward dependent/subclass.
+
+### XIME.UI, layouts and menus
+
+```mermaid
+classDiagram
+    FrameLayout <|-- Layout
+    Layout <|-- CardLayout
+    Layout <|-- LayerLayout
+    Layout <|-- StackLayout
+    Layout <|-- OverlayLayout
+    Layout <|-- OrbitItemLayout
+    Layout <|-- BlurLayout
+    Layout <|-- HeaderMenu
+    Layout <|-- FooterMenu
+    Layout <|-- TitleMenu
+    Layout <|-- FloatingMenu
+    Layout <|-- TextField
+    Layout <|-- PagerLayout
+    BlurLayout <|-- BlurView
+    CardLayout <|-- OrbitRow
+    AWLinear <|-- LinearLayout
+    LinearLayout <|-- Dropdown
+    LinearLayout <|-- RadioButton
+    LinearLayout <|-- SubHeaderMenu
+    class AWLinear["android.widget.LinearLayout"]
+    class LinearLayout["xime.ui.layout.LinearLayout"]
+```
+
+```mermaid
+flowchart LR
+    subgraph Views["Views (xime.ui.view)"]
+        V[View\nAccessibility + Key + Drawable events] --> ImageView --> PictureView
+        V --> TextView
+        V --> ChartView
+        V --> MapView
+        V --> EditText
+        V --> WeatherView
+        V --> GapView
+    end
+    subgraph Dialogs["Dialogs"]
+        D[Dialog] --> PopUpDialog
+        D --> BottomDialog
+        D --> EdgeDialog
+        D --> SurfaceDialog
+    end
+    subgraph Widgets["Material-based widgets"]
+        Button
+        Chip
+        Switch
+        FloatingButton
+        SearchBar
+    end
+```
+
+### Glass blur pipeline (XIME.UI + XIME.Graphics)
+
+```mermaid
+flowchart TB
+    App[App content] --> BL[BlurLayout\ncaptures background]
+    BL --> LB[LegacyBlur\nCrystal renderer]
+    BL --> AB[AdaptiveBlur\nAURA renderer]
+    LB --> DLG[drawLiquidGlass\nrefraction + highlight + theme]
+    AB --> MR[mesh-warped refraction]
+    DLG --> Canvas
+    MR --> Canvas
+    Canvas --> SB[SwipeBloom\nedge glow]
+```
+
+### XIME.Graphics shaders
+
+```mermaid
+classDiagram
+    class LegacyBlur["LegacyBlur\nCrystal liquid-glass renderer"]
+    class AdaptiveBlur["AdaptiveBlur\nAURA mesh refraction, DeviceTier-aware"]
+    class SwipeBloom["SwipeBloom\nhighlight softening"]
+    class SwipeDash["SwipeDash\nkinetic trail"]
+    class ThemeMode["enum ThemeMode"]
+    class BlurType["enum BlurType"]
+```
+
+### XIME.Media music subsystem
+
+```mermaid
+flowchart TB
+    subgraph Playback["Playback core"]
+        Eng[MusicEngine] --> ISess[InternalPlaybackSession]
+        Eng --> ESess[ExternalPlaybackSession\nvia PlaybackCaptureBridge]
+        ISess --> PSess{{PlaybackSession}}
+        ESess --> PSess
+        PSess --> Q[Queue + Playlist]
+        PSess --> Snap[PlaybackSnapshot]
+    end
+    subgraph Services["Services"]
+        MSvc[MusicService] --> Eng
+        Scan[MusicScannerService] --> Store
+        Pre[BackgroundPreloadService] --> Cache
+    end
+    subgraph DSP["Equalizer chain"]
+        EQ[Equalizer] --> Acoustic[AcousticSpace]
+        EQ --> Bass[BassDrive]
+        EQ --> Echo[EchoSpace]
+        EQ --> Res[Resonance]
+        EQ --> Spat[Spatializer]
+        EQ --> Vol[VolumeBoost]
+    end
+    subgraph Library["Library + UI"]
+        Store[(MusicDatabase\nPlaylists + Tracks)] --> VM[MusicViewModel]
+        Lyrics[LyricsSystem] --> LView[LyricsView]
+        Spec[Spectrum] --> SView[SpectrumView]
+        Meta[MetadataEditor] --> Store
+        PlayerView --> Eng
+    end
+```
+
+### XIME.Persistence (Peroom ORM)
+
+```mermaid
+flowchart LR
+    subgraph Annotations["Annotations"]
+        E[@PeEntity + @PeId + @PeColumn]
+        D[@PeDao + @PeQuery + @PeInsert + @PeUpdate + @PeDelete]
+        DB[@PeDatabase]
+    end
+    E --> PDB[PeroomDatabase\n+ Builder]
+    D --> PDB
+    DB --> PDB2[@PeDatabase config]
+    PDB --> Eng[PeroomEngine\nSQLite runtime]
+    PDB --> Mig[PeMigration]
+    PDB --> Inv[PeroomInvalidationTracker]
+```
+
+### XIME.Imaging (Prism loader)
+
+```mermaid
+flowchart LR
+    P[Prism\nfacade + engine] --> Req[PrismRequest\nbuilder + PrismOptions]
+    Req --> Task[PrismLoadTask]
+    Task --> DL[Downloader\nHttpURLConnection]
+    Task --> Dec[BitmapDecoder\ninSampleSize]
+    Dec --> MC[MemoryCache\nLruCache]
+    Dec --> DC[DiskCache\nSHA-1 files, 100 MB LRU]
+    Dec --> T{{Transformation}}
+    T --> Circ[Circle + RoundedCorners\n+ CenterCrop]
+```
+
+### XIME.Terminal stack
+
+```mermaid
+flowchart TB
+    Svc[TerminalService\nforeground + Binder] --> XS[xime TerminalSession\nlifecycle + callbacks]
+    XS --> TS[termux TerminalSession]
+    TS --> EM[TerminalEmulator\nxterm/vt100 core]
+    EM --> RB[TerminalBuffer + TerminalRow]
+    EM --> TR[TerminalRenderer]
+    TR --> TV[TerminalView\n+ text selection]
+    Boot[ShellBootstrap] --> XS
+    Nat[TerminalNative\nPTY fork] --> TS
+    EK[ExtraKeysRow] --> TV
+```
+
+### XIME.AI protocol
+
+```mermaid
+flowchart LR
+    W[WakePhrase] --> P[LocalIntentParser]
+    P --> I[Intent enum]
+    P --> PC[ParsedCommand]
+    PC --> HM[HyperionMessage\n+ MessageType]
+    HM --> R{{DeviceRegistry}}
+    R --> IMR[InMemoryDeviceRegistry]
+    DR[DeviceRecord + DeviceType] --> R
+```
+
+### XIME.Animation
+
+```mermaid
+classDiagram
+    Animator <|-- MotionAnimator
+    Animator <|-- SpringAnimator
+    Interpolator <|-- SpringInterpolator
+    class MotionCurve["MotionCurve\ncurve registry"]
+    class LayoutMorpher["LayoutMorpher\ntransitionName matching"]
+    class ViewportMorpher["ViewportMorpher\nenter + return"]
+    SpringAnimator --> SpringInterpolator
+    AnimatorHaptic2["AnimatorHaptic (XIME.Haptic)"] --> Animator
+```
+
+### XIME.Haptic
+
+```mermaid
+classDiagram
+    Haptic <|.. HapticController
+    HapticEngine --> HapticController
+    HapticController --> HapticRuntime
+    AnimatorHaptic --> Animator
+    class HapticEvent["HapticEvent + HapticPattern\n+ HapticProfile + HapticIntensity"]
+```
+
+### XIME.Performance Zenith suite
+
+```mermaid
+flowchart TB
+    subgraph Render["Render passes"]
+        Batch[BatchRenderingZenith]
+        Frame[FrameBudgetZenith]
+        GPU[GPUClippingZenith]
+        Cull[InvisibleCullZenith]
+        Virt[VirtualizationZenith]
+        Dirty[DirtyLineTracker]
+    end
+    subgraph Tasks["Threading"]
+        BG[BackgroundZenith]
+        AS[AsynZenith]
+        HD[HandlerZenith]
+        INC[IncrementalZenith]
+        REF[RefreshZenith]
+    end
+    subgraph Cache["Caching"]
+        MEM[MemoryZenith]
+        CCH[CachingZenith]
+        PAGE[PagingMemoryZenith]
+        POOL[ObjectPoolingZenith]
+        RAM[RAMSingletonZenith]
+        PRE[PrefetchZenith]
+    end
+    Core[CoreZenith] --> Data[DataZenith\nentity conversion]
+    Adapter[AdapterZenith\ndiff + scroll] --> REF
+```
+
+### XIME.Core foundation
+
+```mermaid
+flowchart TB
+    subgraph AppServices["App services"]
+        TM[ThemeManager]
+        EB[XimeEventBus + Dispatcher]
+        GA[GestureArbiter]
+        CC[CardController + ComponentController]
+    end
+    subgraph DeviceData["Device data"]
+        LP[LocationProvider]
+        IP[IpGeoClient]
+        MAP[MapRepository]
+        WX[WeatherRepository]
+        NET[NetClient + TileClient]
+    end
+    subgraph Infra["Infrastructure"]
+        LOG[LogcatLogger]
+        CH[CacheManager + TileCache]
+        IO[AssetUtils + IOUtils]
+    end
+```
+
+### XIME.Location, XIME.Net, XIME.Tools
+
+```mermaid
+flowchart LR
+    subgraph Location["XIME.Location"]
+        FLP[FusedLocationProvider] --> LP2{{LocationProvider}}
+    end
+    subgraph Net["XIME.Net"]
+        GA2[GmsAvailability] --> GHC[GmsConnectionHelper]
+    end
+    subgraph Tools["XIME.Tools"]
+        XT[XimeTools] --> NLL[NativeLibraryLoader]
+        NLL --> JNI[xime_tools_jni]
+        JNI --> EROFS[erofs-utils]
+        JNI --> E2FS[e2fsprogs]
+        XT --> OPT[ErofsOptions + Ext4Options\n+ PackOptions + ProgressListener]
+    end
+```
 
 ## Featured Subsystems
 
