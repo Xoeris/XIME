@@ -1,0 +1,152 @@
+#XoerisTextFormat2026
+
+#Xoeris Text Format or .xtf is a text format by Xoeris. It uses special formatting that only can be read by XESC but it can be edit manually using any text editor. Below are the formatting. (You can delete this line)
+
+{title}=[This is an example title, you can use any characters including symbols and also space]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{descriptions}=[This is an example descriptions, you can use any characters including symbols and also space]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{format}=[Simple]
+#Format that can be use are only Simple, you can use Advance format on .xatf or Xoeris Advanced Text Format
+
+{category}=[Document]
+#Category has many such as Chat, Document, Script, Note. For category will be added in the next update
+
+{version}=[1.0] 
+#Version is must be used in any Xoeris Format. Different version have different features, make sure to check the version to prevent errors!
+
+---
+#Must use triple strip without {} after {version} 
+
+{content}=[This is an example of a content]
+{chat}=
+#You can use any characters and any symbols including special characters inside [block] and you don't need to use extra [] for chat.
+
+[User1]=This is an example of a conversation from user1
+[User2]=This is an example of a conversation from user2
+
+{document}=
+#Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
+
+[
+	# Markdown Example Document
+
+	This is an example of a Markdown (`.md`) file. Markdown is a lightweight markup language used to format text in a way that is easy to read and easy to convert to other formats like HTML or PDF.
+
+	## Table of Contents
+	1. [Basic Formatting](#basic-formatting)
+	2. [Lists](#lists)
+	3. [Code Blocks](#code-blocks)
+	4. [Tables](#tables)
+
+	## Basic Formatting
+	You can use **bold** text, *italic* text, or ***bold and italic*** text. 
+	You can also use `inline code` for technical terms.
+
+	## Lists
+	### Unordered List
+	* Item one
+	* Item two
+		* Sub-item A
+		* Sub-item B
+
+	### Ordered List
+	1. First step
+	2. Second step
+	3. Third step
+
+	## Code Blocks
+	To show a block of code, use triple backticks:
+]
+
+{script}=
+#You can add any programming languages script using script block, make sure to use [(programming_language)script_content].
+
+[
+
+(python)
+
+	md_content = """# Markdown Example Document
+
+	This is an example of a Markdown (`.md`) file. Markdown is a lightweight markup language used to format text in a way that is easy to read and easy to convert to other formats like HTML or PDF.
+
+	## Table of Contents
+	1. [Basic Formatting](#basic-formatting)
+	2. [Lists](#lists)
+	3. [Code Blocks](#code-blocks)
+	4. [Tables](#tables)
+
+	## Basic Formatting
+	You can use **bold** text, *italic* text, or ***bold and italic*** text. 
+	You can also use `inline code` for technical terms.
+
+	## Lists
+	### Unordered List
+	* Item one
+	* Item two
+		* Sub-item A
+		* Sub-item B
+
+	### Ordered List
+	1. First step
+	2. Second step
+	3. Third step
+
+	## Code Blocks
+	To show a block of code, use triple backticks:
+
+	```python
+	def hello_world():
+		print("Hello, Markdown!")
+	
+]
+
+{note}=
+#Note are used for such as release, readme, license, and revision note. More note type will be added in upcoming release. You must use type block like this, (revision) or (readme) before note content.
+
+(readme)
+
+[
+
+	PROJECT TITLE
+	=============
+	[Insert Project Name Here]
+
+	DESCRIPTION
+	===========
+	A brief, high-level summary of what this project does and the problem it solves.
+
+	FEATURES
+	========
+	- Feature 1: Description of the first main feature.
+	- Feature 2: Description of the second main feature.
+	- Feature 3: Description of the third main feature.
+
+	INSTALLATION
+	============
+	1. Clone this repository.
+	2. Install dependencies using:
+	   pip install -r requirements.txt
+	3. Run the application:
+	   python main.py
+
+	USAGE
+	=====
+	Provide instructions on how to use the software or run the project once installed.
+
+	CONTRIBUTING
+	============
+	Explain how others can contribute to the project, report bugs, or request features.
+
+	LICENSE
+	=======
+	[Insert license information here, e.g., MIT License]
+
+	CONTACT
+	=======
+	For questions or support, please reach out to:
+	[Your Name/Email/Website]
+
+]

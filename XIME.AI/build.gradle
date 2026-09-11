@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+    implementation 'com.google.code.gson:gson:2.10.1'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+// XIME.AI — pure Java core for Hyperion protocol (Hyperion is an AI subsystem of XIME).
+// Zero Android SDK dependencies — usable from Android app, stub-agent (plain JVM), and Windows via XIME.
+// Canonical location for Hyperion Phase1 protocol + registry + intents. Hyperion/android/hyperion-core delegates here.

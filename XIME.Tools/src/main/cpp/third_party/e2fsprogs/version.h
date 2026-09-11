@@ -1,0 +1,5 @@
+#ifndef _E2FSPROGS_VERSION_H
+#define _E2FSPROGS_VERSION_H
+#define E2FSPROGS_VERSION "1.47.4"
+#define E2FSPROGS_DATE "6-Mar-2025"
+#endif

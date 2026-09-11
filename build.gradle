@@ -1,0 +1,10 @@
+plugins {
+    alias(libs.plugins.android.library) apply false
+}
+
+// Top-level build file for XIME component.
+// Plugins are managed in the root project.
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

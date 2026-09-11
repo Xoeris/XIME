@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<resources>
+    <string name="app_name">西梅</string>
+    <string name="xoeris_fluid_pill_default_text">克索里斯系统</string>
+    <string name="no_track_playing">没有曲目播放</string>
+    <string name="unknown_artist">未知艺术家</string>
+    <string name="ask_System_hint">搜索...</string>
+    <string name="ask_a_follow_up_use_to_tag_docs_or_files">询问后续。使用@来标记文档或文件。</string>
+</resources>

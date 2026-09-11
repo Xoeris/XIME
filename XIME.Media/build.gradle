@@ -1,0 +1,49 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'xime.media'
+    compileSdk 37
+
+    defaultConfig {
+        minSdk 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation libs.appcompat
+    implementation libs.androidx.media
+    
+    // Room database
+    implementation libs.room.runtime
+    annotationProcessor libs.room.compiler
+    
+    // JSON parsing
+    implementation libs.gson
+    
+    // XIME UI dependency
+    implementation project(':XIME.UI')
+
+    // UI dependencies for media components
+    implementation libs.material
+    implementation libs.recyclerview
+    implementation libs.constraintlayout
+    implementation project(':XIME.Imaging')
+
+    // Utils
+    implementation libs.androidx.localbroadcastmanager
+}

@@ -1,0 +1,49 @@
+#XoerisTextFormat2026
+
+{title}=[XIME Animation — System Overview]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{descriptions}=[XIME.Animation is the physics-based motion system of the XIME framework for the Elarion ecosystem. It provides the core animation engine, spring solvers, HyperOS-style interpolators, and high-precision layout and viewport morphing.]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{format}=[Simple]
+#Format that can be use are only Simple, you can use Advance format on .xatf or Xoeris Advanced Text Format
+
+{category}=[Document]
+#Category has many such as Chat, Document, Script, Note. For category will be added in the next update
+
+{version}=[1.0]
+#Version is must be used in any Xoeris Format. Different version have different features, make sure to check the version to prevent errors!
+
+---
+#Must use triple strip without {} after {version}
+
+{content}=[This document provides a complete overview of the current XIME.Animation architecture, covering every animator, curve registry, interpolator, and morphing engine.]
+
+{document}=
+#Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
+
+[
+	# XIME Animation — System Overview
+
+	XIME.Animation is the physics-based motion system of the XIME framework for the Elarion ecosystem. It provides the core animation engine, spring solvers, HyperOS-style interpolators, and high-precision layout and viewport morphing.
+
+	## Core Animators (`xime.animation`)
+	Loc: `src/main/java/xime/animation`
+
+	* **Animator.java** — Core framework animation engine and base class for all XIME animators.
+	* **MotionAnimator.java** — Main runtime transformation controller, extending Animator.
+	* **SpringAnimator.java** — Physics-based spring solver, extending Animator.
+
+	## Morphing Engines (`xime.animation`)
+	Loc: `src/main/java/xime/animation`
+
+	* **LayoutMorpher.java** — High-precision layout transition engine; supports matching by transitionName for cross-layout morphing.
+	* **ViewportMorpher.java** — Component-level shape and viewport morphology with dedicated enter and return transitions.
+
+	## Curves & Interpolators (`xime.animation`)
+	Loc: `src/main/java/xime/animation`
+
+	* **MotionCurve.java** — Global registry for framework motion curves, including the STANDARD Material-like curve.
+	* **SpringInterpolator.java** — Smooth spring-like interpolator that mimics the HyperOS / iOS feel.
+]

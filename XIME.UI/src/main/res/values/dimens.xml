@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Corner Radii -->
+    <dimen name="xoeris_radius_small">8dp</dimen>
+    <dimen name="xoeris_radius_medium">16dp</dimen>
+    <dimen name="xoeris_radius_large">24dp</dimen>
+    <dimen name="xoeris_radius_extra_large">32dp</dimen>
+    <dimen name="xoeris_radius_full">999dp</dimen>
+
+    <!-- Spacing -->
+    <dimen name="xoeris_spacing_xs">4dp</dimen>
+    <dimen name="xoeris_spacing_sm">8dp</dimen>
+    <dimen name="xoeris_spacing_md">16dp</dimen>
+    <dimen name="xoeris_spacing_lg">24dp</dimen>
+    <dimen name="xoeris_spacing_xl">32dp</dimen>
+
+    <!-- Components -->
+    <dimen name="xoeris_card_elevation">8dp</dimen>
+    <dimen name="xoeris_glass_elevation">12dp</dimen>
+    <dimen name="xoeris_trigger_height">48dp</dimen>
+    <dimen name="xoeris_avatar_size">40dp</dimen>
+    <dimen name="xoeris_divider_height">1dp</dimen>
+
+    <!-- AmbientGlass Defaults -->
+    <item name="xoeris_default_blur_radius" format="float" type="dimen">70.0</item>
+    <item name="xoeris_default_glass_opacity" format="float" type="dimen">0.1</item>
+</resources>
+

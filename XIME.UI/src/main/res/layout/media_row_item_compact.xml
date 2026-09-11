@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xime.ui.layout.CardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mediaCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="0dp"
+    android:layout_marginVertical="0dp"
+    android:clickable="false"
+    android:focusable="false"
+    android:background="@android:color/transparent"
+    app:xoerisCornerRadius="0dp"
+    app:xoerisElevation="0dp">
+
+    <xime.ui.layout.LinearLayout
+        android:id="@+id/mediaRowContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <xime.ui.layout.CardLayout
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:xoerisCornerRadius="4dp"
+            app:xoerisElevation="0dp">
+
+            <xime.ui.view.PictureView
+                android:id="@+id/mediaImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/xoeris_music_note"
+                android:background="?attr/colorSurfaceVariant" />
+
+        </xime.ui.layout.CardLayout>
+
+        <xime.ui.layout.LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
+            android:orientation="vertical">
+
+            <xime.ui.layout.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <xime.ui.view.TextView
+                    android:id="@+id/mediaTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="Ultra Compact File Name" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/mediaExtension"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text=".txt"
+                    android:textColor="#FFC107"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </xime.ui.layout.LinearLayout>
+
+            <xime.ui.layout.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <xime.ui.view.TextView
+                    android:id="@+id/mediaSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textSize="10sp"
+                    android:alpha="0.7"
+                    tools:text="1.2 MB | 2026-07-24" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/mediaDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:alpha="0.5"
+                    android:textSize="9sp"
+                    android:visibility="gone"
+                    tools:text="3:45" />
+
+            </xime.ui.layout.LinearLayout>
+
+        </xime.ui.layout.LinearLayout>
+
+        <xime.ui.common.IconButton
+            android:id="@+id/mediaDragHandle"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/xoeris_drag_handle"
+            app:tint="?attr/colorOnSurfaceVariant"
+            android:scaleType="centerInside"
+            android:visibility="gone" />
+
+        <xime.ui.common.IconButton
+            android:id="@+id/mediaMoreButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/xoeris_more_vert"
+            app:tint="?attr/colorOnSurfaceVariant"
+            android:scaleType="centerInside"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </xime.ui.layout.LinearLayout>
+
+</xime.ui.layout.CardLayout>

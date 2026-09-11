@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xime.ui.layout.BlurLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="320dp"
+    app:xoerisCornerRadius="32dp"
+    app:xoerisShowBorder="true"
+    app:xoerisBlurType="none">
+
+    <xime.ui.layout.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Map Tile Container with Padding -->
+        <xime.ui.layout.BlurLayout
+            android:id="@+id/map_tile_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="12dp"
+            app:xoerisBlurType="none"
+            app:xoerisCornerRadius="28dp"
+            app:xoerisShowBorder="false"
+            app:xoerisGlassOpacity="1.0">
+
+            <xime.ui.view.MapTileView
+                android:id="@+id/map_tile_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </xime.ui.layout.BlurLayout>
+
+        <!-- Top Left: Time and Timezone -->
+        <xime.ui.layout.BlurLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:xoerisCornerRadius="12dp"
+            app:xoerisGlassOpacity="0.4"
+            app:xoerisShowBorder="false">
+
+            <xime.ui.layout.LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <xime.ui.view.TextView
+                    android:id="@+id/map_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="21:48"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/map_timezone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="GMT+2"
+                    android:textColor="#B0FFFFFF"
+                    android:textSize="14sp" />
+            </xime.ui.layout.LinearLayout>
+        </xime.ui.layout.BlurLayout>
+
+        <!-- Top Right: Collapse Button -->
+        <xime.ui.layout.BlurLayout
+            android:id="@+id/map_collapse_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:xoerisCornerRadius="12dp"
+            app:xoerisGlassOpacity="0.4"
+            app:xoerisShowBorder="false">
+
+            <xime.ui.view.PictureView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:src="@drawable/xoeris_navigation_variant"
+                app:tint="#FFFFFF" />
+        </xime.ui.layout.BlurLayout>
+
+        <!-- Center Overlay: Avatar Pin and Location Dot -->
+        <xime.ui.layout.LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <xime.ui.layout.BlurLayout
+                android:id="@+id/map_avatar_container"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:xoerisCornerRadius="6dp"
+                app:xoerisShowBorder="true"
+                app:xoerisGlassOpacity="1.0"
+                android:padding="2dp">
+
+                <xime.ui.view.PictureView
+                    android:id="@+id/map_user_avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/xoeris_person"
+                    android:scaleType="centerCrop" />
+            </xime.ui.layout.BlurLayout>
+
+            <View
+                android:id="@+id/map_location_dot"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginTop="-4dp"
+                android:background="@drawable/xoeris_circle_white"
+                android:backgroundTint="#3D82FF" />
+        </xime.ui.layout.LinearLayout>
+
+        <!-- Bottom Info Bar -->
+        <xime.ui.layout.BlurLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:xoerisCornerRadius="20dp"
+            app:xoerisGlassOpacity="0.6"
+            app:xoerisShowBorder="false">
+
+            <xime.ui.layout.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <xime.ui.view.PictureView
+                    android:id="@+id/map_info_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/xoeris_location"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:tint="#FFFFFF" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/map_city_country"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:text="City, States"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="@+id/map_info_icon"
+                    app:layout_constraintStart_toEndOf="@+id/map_info_icon"
+                    app:layout_constraintEnd_toStartOf="@+id/map_distance" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/map_address"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="IP Address"
+                    android:textColor="#B0FFFFFF"
+                    android:textSize="14sp"
+                    app:layout_constraintTop_toBottomOf="@+id/map_city_country"
+                    app:layout_constraintStart_toStartOf="@+id/map_city_country"
+                    app:layout_constraintEnd_toEndOf="@+id/map_city_country" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/map_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 km"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </xime.ui.layout.ConstraintLayout>
+        </xime.ui.layout.BlurLayout>
+
+    </xime.ui.layout.ConstraintLayout>
+
+</xime.ui.layout.BlurLayout>

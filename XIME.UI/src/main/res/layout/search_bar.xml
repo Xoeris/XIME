@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <xime.ui.view.PictureView
+        android:id="@+id/search_icon"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/xoeris_search"
+        app:tint="#888899" />
+
+    <View
+        android:id="@+id/search_divider"
+        android:layout_width="1.5dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="12dp"
+        android:background="#20888899" />
+
+    <xime.ui.common.TextField
+        android:id="@+id/search_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:hint="Search..."
+        android:textColorHint="#60888899"
+        android:textColor="@android:color/white"
+        android:textSize="15sp"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:maxLines="1"
+        android:inputType="textFilter|textNoSuggestions"
+        android:imeOptions="actionSearch"
+        android:cursorVisible="true"
+        android:textCursorDrawable="@drawable/xoeris_white_cursor"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:importantForAutofill="no" />
+
+    <xime.ui.view.PictureView
+        android:id="@+id/clear_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/xoeris_clear_all"
+        android:visibility="gone"
+        app:tint="#888899" />
+
+</merge>

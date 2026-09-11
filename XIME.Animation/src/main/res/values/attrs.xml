@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Animation & Motion Attributes -->
+    <declare-styleable name="MotionView">
+        <attr name="xoerisTransitionDuration" format="integer" />
+        <attr name="xoerisInterpolator" format="reference" />
+    </declare-styleable>
+
+    <!-- Shimmer Attributes -->
+    <declare-styleable name="ShimmerIndicator">
+        <attr name="xoerisShimmerColor" format="color" />
+        <attr name="xoerisShimmerDuration" format="integer" />
+    </declare-styleable>
+</resources>

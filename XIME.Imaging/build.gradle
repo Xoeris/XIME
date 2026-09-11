@@ -1,0 +1,35 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'xime.imaging'
+    compileSdk 37
+
+    defaultConfig {
+        minSdk 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    // Only needed for ILogger/LogcatLogger. If you'd rather keep XIME.Imaging
+    // fully standalone, swap these two calls in Prism.java for android.util.Log
+    // and drop this dependency.
+    api project(':XIME.Core')
+
+    implementation libs.appcompat
+    implementation libs.androidx.annotation
+}

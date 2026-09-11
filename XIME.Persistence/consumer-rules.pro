@@ -1,0 +1,1 @@
+-keep class xime.persistence.peroom.** { *; }

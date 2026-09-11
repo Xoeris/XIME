@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<resources>
+    <string name="app_name">XIME</string>
+    <string name="xoeris_fluid_pill_default_text">ゼエリスシステム</string>
+    <string name="no_track_playing">トラックが再生されていません</string>
+    <string name="unknown_artist">不明なアーティスト</string>
+    <string name="ask_System_hint">検索...</string>
+    <string name="ask_a_follow_up_use_to_tag_docs_or_files">フォローアップを依頼してください。 @ を使用してドキュメントまたはファイルにタグを付けます。</string>
+</resources>

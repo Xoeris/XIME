@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <xime.ui.layout.Layout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="44dp"
+        android:background="@drawable/xoeris_bg_control_code"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/control_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="28dp"
+            android:background="@android:color/transparent"
+            android:textColor="?attr/colorOnSurface"
+            android:textColorHint="?attr/colorOnSurfaceVariant"
+            android:textSize="15sp"
+            android:gravity="center_vertical"
+            android:cursorVisible="true"
+            android:textCursorDrawable="@drawable/xoeris_white_cursor"
+            android:inputType="textMultiLine"
+            android:importantForAutofill="no" />
+
+    </xime.ui.layout.Layout>
+
+</merge>
+

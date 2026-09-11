@@ -1,0 +1,107 @@
+#XoerisTextFormat2026
+
+{title}=[XIME Media — System Overview]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{descriptions}=[XIME.Media is the hyper media engine of the XIME framework for the Elarion ecosystem. It provides playback orchestration, a music engine with crash recovery, high-precision lyrics synchronization, spectrum analysis, equalizer DSP, Room-based persistence, media UI widgets, and AI-driven video frame interpolation.]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{format}=[Simple]
+#Format that can be use are only Simple, you can use Advance format on .xatf or Xoeris Advanced Text Format
+
+{category}=[Document]
+#Category has many such as Chat, Document, Script, Note. For category will be added in the next update
+
+{version}=[1.0]
+#Version is must be used in any Xoeris Format. Different version have different features, make sure to check the version to prevent errors!
+
+---
+#Must use triple strip without {} after {version}
+
+{content}=[This document provides a complete overview of the current XIME.Media architecture, covering playback, music services, lyrics, spectrum, metadata, equalizer, persistence, UI widgets, and interpolation.]
+
+{document}=
+#Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
+
+[
+	# XIME Media — System Overview
+
+	XIME.Media is the hyper media engine of the XIME framework for the Elarion ecosystem. It provides playback orchestration, a music engine with crash recovery, high-precision lyrics synchronization, spectrum analysis, equalizer DSP, Room-based persistence, media UI widgets, and AI-driven video frame interpolation.
+
+	## Playback Core (`xime.media`)
+	Loc: `src/main/java/xime/media`
+
+	* **Media.java** — Prepares the hardware pipeline for playback from a URI or path data source.
+	* **Session.java** — Playback session state container.
+	* **Queue.java** — Playback queue with current index management.
+	* **Playlist.java** — Playlist abstraction.
+	* **SleepTimer.java** — Sleep timer pausing through the engine with UI broadcast.
+	* **MediaPrefs.java** — Media preference storage.
+	* **Signal.java** — Observer signal with connect/disconnect (alias unsubscribe) semantics.
+
+	## Music Engine (`xime.media.music`)
+	Loc: `src/main/java/xime/media/music`
+
+	* **Music.java** — Core music layer: fade system, normalization logic, and bounded art extraction.
+	* **MusicEngine.java** — Playback orchestration with state restore, signal initialization, and auto-play next on completion.
+	* **manager/MusicManager.java** — High-level track and album art coordination.
+	* **manager/MusicCacheManager.java** — Synchronous cached-track loading for backward compatibility.
+	* **manager/AdvancedMusicCacheManager.java** — Multi-level caching with tuned cache sizes and threading.
+	* **service/MusicService.java** — MediaSession-backed service with crash-recovery state restore.
+	* **service/MusicScannerService.java** — Library scanning service.
+	* **viewmodel/MusicViewModel.java** — Framework-level observers for high-fidelity sync.
+
+	## Lyrics (`xime.media.music.lyrics`)
+	Loc: `src/main/java/xime/media/music/lyrics`
+
+	* **Lyrics.java** — [SARAH-ACTIVATED] High-precision lyrics engine with token-based word synchronization.
+	* **LyricsSystem.java** — Multi-source lyrics resolution: sidecar .lrc/.txt files first, then embedded metadata tags.
+
+	## Spectrum & Signal (`xime.media.spectrum`)
+	Loc: `src/main/java/xime/media/spectrum`
+
+	* **Spectrum.java** — Real-time audio analysis with noise gating and Catmull-Rom spline sampling.
+
+	## Metadata (`xime.media.metadata`)
+	Loc: `src/main/java/xime/media/metadata`
+
+	* **Metadata.java** — Immutable track metadata with multi-key lyric search.
+	* **MetadataEditor.java** — Draft management, validation, and state notification for edits.
+	* **manager/MetadataManager.java** — Database metadata updates; tag writing planned.
+
+	## Equalizer DSP (`xime.media.equalizer`)
+	Loc: `src/main/java/xime/media/equalizer`
+
+	* **Equalizer.java** — Base equalizer engine.
+	* **EqualizerAcousticSpace.java** — Acoustic space preset.
+	* **EqualizerBassDrive.java** — Bass drive preset.
+	* **EqualizerEchoSpace.java** — Echo space preset.
+	* **EqualizerResonance.java** — Resonance preset.
+	* **EqualizerSpatializer.java** — Spatializer preset.
+	* **EqualizerVolumeBoost.java** — Volume boost preset.
+
+	## Persistence (`xime.media.database` / `dao` / `entity`)
+	Loc: `src/main/java/xime/media/database`, `src/main/java/xime/media/dao`, `src/main/java/xime/media/entity`
+
+	* **MusicDatabase.java** — Room database entry point.
+	* **PlaylistDao.java / TrackDao.java / DeletedPlaylistDao.java** — Data access with optimized pagination, search, and batch queries.
+	* **TrackEntity.java / PlaylistEntity.java / PlaylistTrackEntity.java / DeletedPlaylistEntity.java** — Room entities with Parcelable support.
+	* **PlaylistWithArt.java** — [SARAH-ACTIVATED] POJO joining playlists with fallback art from the first track.
+
+	## Media UI (`xime.media.ui`)
+	Loc: `src/main/java/xime/media/ui`
+
+	* **PlayerView.java** — Full player surface with per-element theme mode forcing.
+	* **LyricsView.java** — Live word-timed lyrics rendering supporting refined timing pushes.
+	* **SpectrumView.java / SpectrumLayout.java** — Visualizer views with deep-fade gradients and edge-to-edge bar coverage.
+	* **OrbitView.java / OrbitLayout.java / MediaOrbitAdapter.java** — Orbital media browsing components.
+	* **MediaView.java** — Integrated media viewer with zoom/pan, action bars, and playback controls.
+	* **VideoView.java** — Hybrid neural + motion-compensated frame interpolation video surface.
+
+	## Services & Utilities (`xime.media.service` / `utils`)
+	Loc: `src/main/java/xime/media/service`, `src/main/java/xime/media/utils`
+
+	* **BackgroundPreloadService.java** — Background preloading of media content.
+	* **AsyncAlbumArtExtractorUtils.java** — Disk-cached album art extraction.
+	* **VideoInterpolation.java** — Lucine core v13 motion-compensated frame flow driving per-VSYNC alpha ramps and native mesh warping.
+]

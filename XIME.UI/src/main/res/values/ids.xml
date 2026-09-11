@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="xoeris_indicator" type="id" />
+    <item name="menuAction" type="id" />
+    <item name="orbit_position_tag" type="id" />
+    <item name="tag_art" type="id" />
+    <item name="searchControl" type="id" />
+    <item name="actionButton" type="id" />
+    <item name="lyricsView" type="id" />
+    <item name="btnSyncLyrics" type="id" />
+    <item name="btnLiveSyncLyrics" type="id" />
+    <item name="lyricsPageContainer" type="id" />
+    <item name="lyricsSineReflect" type="id" />
+    <item name="lyricsPageLayout" type="id" />
+    <item name="bioPageLayout" type="id" />
+    <item name="bioPager" type="id" />
+    <item name="artistBioImage" type="id" />
+    <item name="artistBioName" type="id" />
+    <item name="artistBioSource" type="id" />
+    <item name="artistBioText" type="id" />
+    <item name="playerContent" type="id" />
+    <item name="playerGlassWrapper" type="id" />
+    <item name="flexRoot" type="id" />
+    <item name="spectrumBackground" type="id" />
+    <item name="mainPager" type="id" />
+    <item name="albumArtContainer" type="id" />
+    <item name="albumArt" type="id" />
+    <item name="trackTitle" type="id" />
+    <item name="artistName" type="id" />
+    <item name="currentTimeText" type="id" />
+    <item name="controlContainer" type="id" />
+    <item name="shuffleButton" type="id" />
+    <item name="previousButton" type="id" />
+    <item name="playPauseButton" type="id" />
+    <item name="nextButton" type="id" />
+    <item name="repeatButton" type="id" />
+    <item name="totalTimeText" type="id" />
+    <item name="linearTrackBar" type="id" />
+    <item name="queuePage" type="id" />
+    <item name="timeContainer" type="id" />
+</resources>
+

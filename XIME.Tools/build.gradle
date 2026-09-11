@@ -1,0 +1,67 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'xime.tools'
+    compileSdk 37
+
+    defaultConfig {
+        minSdk 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++17"
+            }
+        }
+        ndk {
+            abiFilters "arm64-v8a", "armeabi-v7a", "x86_64", "x86"
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.22.1"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+// Invoke WSL2 ./configure for each ABI before the NDK CMake build.
+// The script stamps a per-ABI sentinel file so repeated builds only
+// re-run configure if the sentinel is absent or stale.
+task wsl2ConfigureNative(type: Exec) {
+    def scriptPath = "${projectDir.absolutePath.replace('\\', '/')}/scripts/wsl2_configure.sh"
+    commandLine 'wsl', '-e', 'bash', '-c', scriptPath
+    // Do not fail the build on Windows hosts that do not have WSL2 installed —
+    // in that case the pre-generated headers in android-config/ must already
+    // exist (e.g. checked in from a WSL2 machine).
+    ignoreExitValue true
+}
+
+preBuild.dependsOn wsl2ConfigureNative
+
+dependencies {
+    implementation project(':XIME.Core')
+
+    implementation libs.appcompat
+    implementation libs.androidx.annotation
+}

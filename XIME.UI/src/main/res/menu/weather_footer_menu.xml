@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/xoeris_home_fill"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_weather"
+        android:icon="@drawable/xoeris_dashboard"
+        android:title="Weather" />
+    <item
+        android:id="@+id/nav_global"
+        android:icon="@drawable/xoeris_internet"
+        android:title="Global" />
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/xoeris_library"
+        android:title="Favorites" />
+</menu>

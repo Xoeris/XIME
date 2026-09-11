@@ -1,0 +1,30 @@
+# Gradle / Android build outputs
+build/
+.cxx/
+*.apk
+*.aab
+*.aar
+local.properties
+
+# Gradle wrapper cache
+.gradle/
+
+# IDE
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.pyc
+
+# Local toolchains / scratch
+bin/
+_xime_jar_build/
+
+# Built jars (publish via GitHub Releases instead; keep the wrapper)
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Logs / OS
+*.log
+.DS_Store

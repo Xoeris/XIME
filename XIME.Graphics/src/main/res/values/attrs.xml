@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- AmbientGlass System Attributes -->
+    <declare-styleable name="BlurView">
+        <attr name="xoerisBlurType" format="enum">
+            <enum name="glass" value="0" />
+            <enum name="crystal" value="1" />
+            <enum name="none" value="2" />
+        </attr>
+        <!-- Sub-type used only when xoerisBlurType="crystal" (BlurV2 engine). -->
+        <attr name="xoerisBlurV2Type" format="enum">
+            <enum name="obscura" value="0" />
+            <enum name="aura" value="1" />
+        </attr>
+        <attr name="xoerisBlurRadius" format="float" />
+        <attr name="xoerisGlassTint" format="color" />
+        <attr name="xoerisGlassOpacity" format="float" />
+        <attr name="xoerisVibrancy" format="float" />
+        <attr name="xoerisNoiseAmount" format="integer" />
+        <attr name="xoerisShowBorder" format="boolean" />
+        <attr name="xoerisShowHighlight" format="boolean" />
+        <attr name="xoerisShowShadow" format="boolean" />
+        <attr name="xoerisShadowRadius" format="dimension" />
+        <attr name="xoerisShadowDy" format="dimension" />
+        <attr name="xoerisShadowColor" format="color" />
+        <attr name="xoerisCornerRadius" />
+        <attr name="xoerisTopLeftCornerRadius" />
+        <attr name="xoerisTopRightCornerRadius" />
+        <attr name="xoerisBottomLeftCornerRadius" />
+        <attr name="xoerisBottomRightCornerRadius" />
+
+        <attr name="xoerisDisableGlass" format="boolean" />
+        <attr name="xoerisExcludeOtherBlurLayouts" format="boolean" />
+        <attr name="xoerisThemeMode" format="enum">
+            <enum name="dark" value="0" />
+            <enum name="light" value="1" />
+            <enum name="auto" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>
+

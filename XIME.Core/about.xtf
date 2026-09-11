@@ -1,0 +1,126 @@
+#XoerisTextFormat2026
+
+{title}=[XIME Core — System Overview]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{descriptions}=[XIME.Core is the foundation module of the XIME framework for the Elarion ecosystem. It hosts the shared infrastructure every other XIME module depends on: event bus, threading dispatcher, caching, networking, location, weather and map services, theming, logging, AI assistant contracts, and a native Vulkan-accelerated frame interpolation engine.]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{format}=[Simple]
+#Format that can be use are only Simple, you can use Advance format on .xatf or Xoeris Advanced Text Format
+
+{category}=[Document]
+#Category has many such as Chat, Document, Script, Note. For category will be added in the next update
+
+{version}=[1.0]
+#Version is must be used in any Xoeris Format. Different version have different features, make sure to check the version to prevent errors!
+
+---
+#Must use triple strip without {} after {version}
+
+{content}=[This document provides a complete overview of the current XIME.Core architecture, covering every package, class, native library, tooling script, and resource layer.]
+
+{document}=
+#Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
+
+[
+	# XIME Core — System Overview
+
+	XIME.Core is the foundation module of the XIME framework for the Elarion ecosystem. It hosts the shared infrastructure every other XIME module depends on: event bus, threading dispatcher, caching, networking, location, weather and map services, theming, logging, AI assistant contracts, and a native Vulkan-accelerated frame interpolation engine.
+
+	## AI Assistant (`xime.core.aetheris`)
+	Loc: `src/main/java/xime/core/aetheris`
+
+	* **SARAHAssistantAetheris.java** — Foundational contract for the SARAH (Sovereign Autonomous Resilient Adaptive Hierophant) assistant within XIME.
+
+	## Component Controllers (`xime.core.controller`)
+	Loc: `src/main/java/xime/core/controller`
+
+	* **ComponentController.java** — Base controller that binds component behavior to a View and manages release.
+	* **CardController.java** — Specialized controller for card components, extending ComponentController.
+
+	## Caching (`xime.core.cache`)
+	Loc: `src/main/java/xime/core/cache`
+
+	* **CacheManager.java** — Basic memory cache, moved to Core to avoid circular dependencies.
+	* **TileCache.java** — LRU in-memory cache for map tiles.
+
+	## Concurrency & Messaging (`xime.core.dispatch` / `xime.core.eventbus`)
+	Loc: `src/main/java/xime/core/dispatch`, `src/main/java/xime/core/eventbus`
+
+	* **Dispatcher.java** — XIME.Core threading dispatcher for background and main-thread execution.
+	* **XimeEventBus.java** — Lightweight typed event bus for cross-module pub/sub. Decouples modules that cannot depend on each other directly (e.g., XIME.Media posting track-change events received by a XIME.UI mini-player); both depend only on XIME.Core.
+
+	## Gesture Arbitration (`xime.core.gesture`)
+	Loc: `src/main/java/xime/core/gesture`
+
+	* **GestureArbiter.java** — Central arbiter that resolves competing touch and gesture claims across components.
+
+	## Location Services (`xime.core.location`)
+	Loc: `src/main/java/xime/core/location`
+
+	* **LocationProvider.java** — Fused location provider using Google Play Services with Geocoder reverse lookup support.
+
+	## Logging (`xime.core.log` / `xime.core.logger`)
+	Loc: `src/main/java/xime/core/log`, `src/main/java/xime/core/logger`
+
+	* **ILogger.java** — XIME core logging interface, placed in Core to avoid circular dependencies.
+	* **LogcatLogger.java** — Concrete ILogger implementation that logs to Logcat.
+
+	## Data Models (`xime.core.model`)
+	Loc: `src/main/java/xime/core/model`
+
+	* **AirQualityData.java** — Air quality index (AQI) snapshot with timestamp.
+	* **MapLocation.java** — Data model for geographic locations in XIME.
+	* **WeatherData.java** — Weather snapshot: temperature, weather code, cloud cover, sunrise and sunset.
+
+	## Networking (`xime.core.net`)
+	Loc: `src/main/java/xime/core/net`
+
+	* **IpGeoClient.java** — IP geolocation client using ipapi.co (free tier).
+	* **NetClient.java** — Lightweight HTTP client with timeout handling.
+	* **TileClient.java** — Fetches map tiles from OpenStreetMap.
+
+	## Repositories (`xime.core.repo`)
+	Loc: `src/main/java/xime/core/repo`
+
+	* **MapRepository.java** — Repository for map data; coordinates IP geolocation and tile fetching.
+	* **WeatherRepository.java** — Repository exposing asynchronous weather lookups via callback.
+
+	## Theming (`xime.core.theme`)
+	Loc: `src/main/java/xime/core/theme`
+
+	* **ThemeManager.java** — Central theme state manager and single source of truth for dark/light mode across all XIME System Apps.
+
+	## Utilities (`xime.core.utils`)
+	Loc: `src/main/java/xime/core/utils`
+
+	* **AssetUtils.java** — Helpers for extracting and copying packaged assets to storage.
+	* **IOUtils.java** — Stream copy and close utilities.
+
+	## System (`xime.core.system.build` / `xime.core.system.manager`)
+	Loc: `src/main/java/xime/core/system/build`, `src/main/java/xime/core/system/manager`
+
+	* **ConfigProjectBuild.java** — Static holder for build configuration: applicationId, build type, version name/code, and debug flag.
+	* **AccountManager.java** — Device account, contact, and settings provider access for Xoeris identity services.
+
+	## Native Interpolation Engine (`cpp` + `ncnn-vulkan`)
+	Loc: `src/main/cpp`, `src/main/ncnn-vulkan`
+
+	* **lucine-interpolator.c** — Core C implementation of the Lucine frame interpolation pipeline.
+	* **rife_ncnn_bridge.cpp** — JNI bridge between the Java layer and RIFE models running on ncnn.
+	* **ncnn-vulkan/** — Prebuilt ncnn and glslang static libraries with headers for arm64-v8a, armeabi-v7a, riscv64, x86, and x86_64.
+
+	## Python Tooling (`python`)
+	Loc: `src/main/python`
+
+	* **ai_frame_interpolation.py** — AI-driven frame interpolation entry point.
+	* **interpolation_engine.py** — Interpolation engine logic shared by the tooling scripts.
+
+	## Resources (`res`)
+	Loc: `src/main/res`
+
+	* **bottom_navigation_menu.xml** — Default menu definition for glassy bottom navigation.
+	* **ids.xml** — Shared view ID declarations.
+	* **strings.xml** — Core string resources.
+]

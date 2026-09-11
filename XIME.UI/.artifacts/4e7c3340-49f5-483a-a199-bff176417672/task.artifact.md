@@ -1,0 +1,6 @@
+- [x] Update build.gradle to use Java 17
+- [x] Fix SineReflectLayout.java compilation errors
+- [x] Fix CircleProgressBar.java compilation errors
+- [x] Fix LinearProgressBar.java compilation errors
+- [x] Fix FooterMenu.java compilation errors
+- [x] Verify build

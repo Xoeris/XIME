@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<resources>
+    <string name="app_name">КСИМЕ</string>
+    <string name="xoeris_fluid_pill_default_text">Система Ксоэрис</string>
+    <string name="no_track_playing">Не воспроизводится трек</string>
+    <string name="unknown_artist">Неизвестный художник</string>
+    <string name="ask_System_hint">Поиск...</string>
+    <string name="ask_a_follow_up_use_to_tag_docs_or_files">Спросите продолжение. Используйте @, чтобы пометить документы или файлы.</string>
+</resources>

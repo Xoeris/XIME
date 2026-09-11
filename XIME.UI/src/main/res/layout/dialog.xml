@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xime.ui.layout.Layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <xime.ui.layout.BlurLayout
+        android:id="@+id/dialogGlassBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:xoerisBlurRadius="50"
+        app:xoerisCornerRadius="28dp">
+
+        <xime.ui.layout.LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
+
+            <xime.ui.view.TextView
+                android:id="@+id/dialogTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <xime.ui.view.TextView
+                android:id="@+id/dialogMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:alpha="0.7"
+                android:layout_marginBottom="24dp" />
+
+            <xime.ui.layout.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end">
+
+                <xime.ui.view.TextView
+                    android:id="@+id/btn_negative"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="?attr/colorOnSurfaceVariant" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/btn_positive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="?attr/colorPrimary" />
+            </xime.ui.layout.LinearLayout>
+
+        </xime.ui.layout.LinearLayout>
+
+    </xime.ui.layout.BlurLayout>
+</xime.ui.layout.Layout>
+

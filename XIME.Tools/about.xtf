@@ -1,0 +1,60 @@
+#XoerisTextFormat2026
+
+{title}=[XIME Tools — System Overview]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{descriptions}=[XIME.Tools is the filesystem image toolkit of the XIME framework for the Elarion ecosystem. It packs and manipulates EROFS and ext4 images in-process through JNI, backed by bundled liberofs and e2fsprogs native sources.]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{format}=[Simple]
+#Format that can be use are only Simple, you can use Advance format on .xatf or Xoeris Advanced Text Format
+
+{category}=[Document]
+#Category has many such as Chat, Document, Script, Note. For category will be added in the next update
+
+{version}=[1.0]
+#Version is must be used in any Xoeris Format. Different version have different features, make sure to check the version to prevent errors!
+
+---
+#Must use triple strip without {} after {version}
+
+{content}=[This document provides a complete overview of the current XIME.Tools architecture, covering the public facade, JNI bridge, filesystem detection, options builders, exception hierarchy, and native sources.]
+
+{document}=
+#Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
+
+[
+	# XIME Tools — System Overview
+
+	XIME.Tools is the filesystem image toolkit of the XIME framework for the Elarion ecosystem. It packs and manipulates EROFS and ext4 images in-process through JNI, backed by bundled liberofs and e2fsprogs native sources.
+
+	## Public API (`xime.tools`)
+	Loc: `src/main/java/xime/tools`
+
+	* **XimeTools.java** — Public facade for filesystem operations; dispatches to XimeToolsNative JNI calls via liberofs/libext2fs.
+	* **XimeToolsNative.java** — Package-private JNI declaration class loading libxime-tools.so in a static initializer, mirroring TerminalNative.
+	* **NativeLibraryLoader.java** — ABI-aware lazy loader for libxime-tools.so with detailed error surfacing.
+	* **FsType.java** — Filesystem type detection by magic-byte inspection of superblocks; pure Java, no native call required.
+	* **ProgressListener.java** — Callback interface fed from registered JNI callbacks so callers track long-running operations without polling.
+
+	## Options (`xime.tools.options`)
+	Loc: `src/main/java/xime/tools/options`
+
+	* **PackOptions.java** — Thin wrapper holding exactly one of ErofsOptions or Ext4Options for packImage().
+	* **ErofsOptions.java** — Compression and feature options for creating EROFS images (builder-based).
+	* **Ext4Options.java** — Block/inode/feature options for creating ext4 images (builder-based).
+
+	## Exceptions (`xime.tools.exception`)
+	Loc: `src/main/java/xime/tools/exception`
+
+	* **XimeToolsException.java** — Base exception carrying the raw native error code.
+	* **FilesystemCorruptException.java** — Image file corrupt, truncated, or inconsistent; typically maps to EUCLEAN (errno 117).
+	* **UnsupportedFsException.java** — Requested operation on a filesystem type XIME.Tools cannot handle.
+
+	## Native Layer (`cpp`)
+	Loc: `src/main/cpp`
+
+	* **xime_tools_jni.cpp** — JNI bridge between the Java facade and the bundled native libraries.
+	* **erofs-utils / liberofs** — Bundled EROFS packing sources with deflate, lz4, lz4hc, zstd, and liblzma compressors.
+	* **e2fsprogs** — Bundled ext2/ext3/ext4 sources: lib/ext2fs, lib/com_err, lib/e2p, lib/uuid, lib/quota, and lib/ss.
+]

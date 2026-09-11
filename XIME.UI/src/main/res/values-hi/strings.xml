@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<resources>
+    <string name="app_name">XIME</string>
+    <string name="xoeris_fluid_pill_default_text">ज़ोएरिस सिस्टम</string>
+    <string name="no_track_playing">कोई ट्रैक नहीं बज रहा है</string>
+    <string name="unknown_artist">अज्ञात कलाकार</string>
+    <string name="ask_System_hint">खोज...</string>
+    <string name="ask_a_follow_up_use_to_tag_docs_or_files">अनुवर्ती पूछें. दस्तावेज़ों या फ़ाइलों को टैग करने के लिए @ का उपयोग करें।</string>
+</resources>

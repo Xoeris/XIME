@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xime.ui.layout.CardLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mediaCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="4dp"
+    android:clickable="false"
+    android:focusable="false"
+    android:background="@android:color/transparent"
+    app:xoerisCornerRadius="16dp"
+    app:xoerisElevation="0dp">
+
+    <xime.ui.layout.LinearLayout
+        android:id="@+id/mediaRowContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
+
+        <xime.ui.common.IconButton
+            android:id="@+id/mediaCheckbox"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/xoeris_check_box_blank"
+            app:tint="?attr/colorPrimary"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp" />
+
+        <xime.ui.layout.CardLayout
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            app:xoerisCornerRadius="12dp"
+            app:xoerisElevation="0dp">
+
+            <xime.ui.view.PictureView
+                android:id="@+id/mediaImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/xoeris_music_note"
+                android:background="?attr/colorSurfaceVariant" />
+
+        </xime.ui.layout.CardLayout>
+
+        <xime.ui.layout.LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical">
+
+            <xime.ui.layout.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <xime.ui.view.TextView
+                    android:id="@+id/mediaTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="New Music Friday" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/mediaExtension"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text=".mp3"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="#FFC107"
+                    android:textStyle="bold" />
+
+            </xime.ui.layout.LinearLayout>
+
+            <xime.ui.layout.LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="2dp">
+
+                <xime.ui.view.TextView
+                    android:id="@+id/mediaSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="Artist" />
+
+                <xime.ui.view.TextView
+                    android:id="@+id/mediaDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAppearance="?attr/textAppearanceBodySmall"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:alpha="0.6"
+                    tools:text="3:45" />
+
+            </xime.ui.layout.LinearLayout>
+
+        </xime.ui.layout.LinearLayout>
+
+        <xime.ui.common.IconButton
+            android:id="@+id/mediaDragHandle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/xoeris_drag_handle"
+            app:tint="?attr/colorOnSurfaceVariant"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            android:layout_marginEnd="4dp" />
+
+        <xime.ui.common.IconButton
+            android:id="@+id/mediaMoreButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/xoeris_more_vert"
+            app:tint="?attr/colorOnSurfaceVariant"
+            android:scaleType="centerInside"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </xime.ui.layout.LinearLayout>
+
+</xime.ui.layout.CardLayout>
+

@@ -1,0 +1,42 @@
+plugins {
+    alias(libs.plugins.android.library)
+}
+
+android {
+    namespace 'xime'
+    compileSdk 37
+
+    defaultConfig {
+        minSdk 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    api project(':XIME.Core')
+    api project(':XIME.Animation')
+    api project(':XIME.Haptic')
+    api project(':XIME.Graphics')
+    
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.navigation.fragment
+    implementation libs.navigation.ui
+    implementation libs.dynamic.animation
+    implementation libs.palette
+    implementation libs.recyclerview
+    implementation project(':XIME.Imaging')
+    implementation libs.core.splashscreen
+}

@@ -1,0 +1,34 @@
+#XoerisTextFormat2026
+
+{title}=[Dummy]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{descriptions}=[This is a dummy file used for testing and placeholder purposes. It contains no real data.]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{format}=[Simple]
+#Format that can be use are only Simple, you can use Advance format on .xatf or Xoeris Advanced Text Format
+
+{category}=[Document]
+#Category has many such as Chat, Document, Script, Note. For category will be added in the next update
+
+{version}=[1.0]
+#Version is must be used in any Xoeris Format. Different version have different features, make sure to check the version to prevent errors!
+
+---
+#Must use triple strip without {} after {version}
+
+{content}=[This is a dummy content block. Replace this text with real content when needed.]
+
+{document}=
+#Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
+
+[
+	# Dummy Document
+
+	This is a dummy document. Nothing to see here.
+
+	* Placeholder item one
+	* Placeholder item two
+	* Placeholder item three
+]

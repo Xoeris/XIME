@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<resources>
+    <string name="app_name">XIMÉ</string>
+    <string name="xoeris_fluid_pill_default_text">Système Xoeris</string>
+    <string name="no_track_playing">Aucune piste en cours de lecture</string>
+    <string name="unknown_artist">Artiste inconnu</string>
+    <string name="ask_System_hint">Recherche...</string>
+    <string name="ask_a_follow_up_use_to_tag_docs_or_files">Demandez un suivi. Utilisez @ pour baliser des documents ou des fichiers.</string>
+</resources>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xime.ui.layout.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lyricsActionRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Background Spectrum for gradient vibes -->
+    <xime.media.ui.SpectrumLayout
+        android:id="@+id/lyricsSpectrum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <xime.ui.layout.ReflectLayout
+        android:id="@+id/lyricsSineReflect"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:xoerisOrientation="vertical">
+
+        <xime.ui.layout.FlowLayout
+            android:id="@+id/lyricsPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="120dp"
+            android:paddingBottom="280dp">
+
+            <xime.media.ui.LyricsView
+                android:id="@+id/lyricsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </xime.ui.layout.FlowLayout>
+    </xime.ui.layout.ReflectLayout>
+
+    <!-- Bottom Interface -->
+    <xime.ui.layout.RelativeLayout
+        android:id="@+id/lyricsBottomInterface"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_gravity="bottom"
+        android:clipChildren="false">
+
+        <!-- The white pill bar -->
+        <xime.ui.layout.BlurLayout
+            android:id="@+id/lyricsBottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="32dp"
+            app:xoerisBlurRadius="60"
+            app:xoerisBlurType="glass"
+            app:xoerisCornerRadius="40dp"
+            app:xoerisShowBorder="false">
+
+            <xime.ui.layout.RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingEnd="96dp">
+
+                <xime.ui.view.PictureView
+                    android:id="@+id/lyricsAlbumArt"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    app:xoerisCornerRadius="16dp" />
+
+                <xime.ui.layout.LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/lyricsAlbumArt"
+                    android:layout_centerVertical="true">
+
+                    <xime.ui.view.TextView
+                        android:id="@+id/lyricsTrackTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:text="Track Title" />
+
+                    <xime.ui.view.TextView
+                        android:id="@+id/lyricsArtistName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"
+                        android:textColor="#99000000"
+                        android:text="Artist Name" />
+                </xime.ui.layout.LinearLayout>
+
+            </xime.ui.layout.RelativeLayout>
+
+        </xime.ui.layout.BlurLayout>
+
+        <!-- Play/Pause Button Bubble Design -->
+        <xime.ui.layout.RelativeLayout
+            android:id="@+id/lyricsPlayPauseBubble"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="22dp"
+            android:clipChildren="false">
+
+            <!-- Purple Cutout Shape (Simulated with circle) -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/xoeris_circle_white"
+                app:tint="#6366F1" />
+
+            <xime.ui.common.IconButton
+                android:id="@+id/lyricsPlayPauseButton"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/xoeris_play"
+                android:padding="22dp"
+                android:background="@drawable/xoeris_circle_white"
+                app:xoerisCornerRadius="37dp"
+                app:xoerisBlurRadius="20"
+                app:tint="#6366F1" />
+        </xime.ui.layout.RelativeLayout>
+
+    </xime.ui.layout.RelativeLayout>
+
+    <xime.ui.common.IconButton
+        android:id="@+id/btnSyncLyrics"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="32dp"
+        android:src="@drawable/xoeris_lyrics"
+        android:visibility="gone"
+        app:xoerisCornerRadius="24dp"
+        app:xoerisBlurRadius="10" />
+
+</xime.ui.layout.ConstraintLayout>
+

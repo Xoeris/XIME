@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Orbit System Attributes -->
+    <declare-styleable name="OrbitLayout">
+        <attr name="xoerisGravity" />
+        <attr name="orbitMode" format="enum">
+            <enum name="carousel" value="0" />
+            <enum name="stack" value="1" />
+        </attr>
+        <attr name="depthEffect" format="boolean" />
+        <attr name="orbitItemSpacing" format="dimension" />
+        <attr name="orbitRotationMultiplier" format="float" />
+        <attr name="orbitScaleMultiplier" format="float" />
+        <attr name="orbitFocusScale" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="OrbitView">
+        <attr name="imageSource" format="reference" />
+    </declare-styleable>
+
+    <!-- PlayerView Attributes -->
+    <declare-styleable name="PlayerView">
+        <attr name="xoerisPlayerHidden" format="boolean" />
+        <attr name="xoerisPlayerLayout" format="reference" />
+        <attr name="xoerisPlayerExpandLayout" format="reference" />
+        <attr name="xoerisPlayerSpectrumEnabled" format="boolean" />
+        <attr name="xoerisPlayerSpectrumColor" format="color" />
+        <attr name="xoerisBlurRadius" />
+        <attr name="xoerisCornerRadius" />
+    </declare-styleable>
+    <declare-styleable name="View">
+        <attr name="xoerisElevation" format="dimension" />
+        <attr name="xoerisCornerRadius" format="dimension" />
+        <attr name="xoerisTopLeftCornerRadius" format="dimension" />
+        <attr name="xoerisTopRightCornerRadius" format="dimension" />
+        <attr name="xoerisBottomLeftCornerRadius" format="dimension" />
+        <attr name="xoerisBottomRightCornerRadius" format="dimension" />
+        <attr name="xoerisAlpha" format="float" />
+    </declare-styleable>
+
+    <!-- Card System Attributes -->
+    <declare-styleable name="CardView">
+        <attr name="xoerisCardType" format="enum">
+            <enum name="standard" value="0" />
+            <enum name="elevated" value="1" />
+            <enum name="outlined" value="2" />
+            <enum name="glass"    value="3" />
+        </attr>
+        <attr name="xoerisRippleColor" format="color" />
+        <attr name="xoerisCornerRadius" />
+        <attr name="xoerisElevation" />
+        <attr name="xoerisStrokeColor" format="color" />
+        <attr name="xoerisStrokeWidth" format="dimension" />
+    </declare-styleable>
+
+    <!-- SineReflect System Attributes -->
+    <declare-styleable name="ReflectLayout">
+        <attr name="xoerisOrientation" format="enum">
+            <enum name="vertical"   value="0" />
+            <enum name="horizontal" value="1" />
+        </attr>
+        <attr name="xoerisIsReloadUI" format="boolean" />
+    </declare-styleable>
+
+    <!-- HeaderMenu Navigation Attributes -->
+    <declare-styleable name="HeaderMenu">
+        <attr name="xoerisSearchEnabled" format="boolean" />
+        <attr name="xoerisSearchHint" format="string" />
+        <attr name="xoerisBigTitle" format="string" />
+    </declare-styleable>
+
+    <!-- TitleMenu Navigation Attributes -->
+    <declare-styleable name="TitleMenu">
+        <attr name="xoerisSmallTitle" format="string" />
+    </declare-styleable>
+
+    <!-- FooterMenu Navigation Attributes -->
+    <declare-styleable name="FooterMenu">
+        <attr name="xoerisMenu" format="reference" />
+        <attr name="xoerisIconSize" format="dimension" />
+        <attr name="xoerisLabelSize" format="dimension" />
+        <attr name="xoerisItemIconTint" format="color" />
+        <attr name="xoerisItemTextColor" format="color" />
+        <attr name="xoerisCenteringExclusion" format="boolean" />
+        <attr name="xoerisMenuType" format="enum">
+            <enum name="floatingDefault" value="0" />
+            <enum name="floatingMini" value="1" />
+            <enum name="stickyBottom" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- Progress Indicator Attributes -->
+    <declare-styleable name="LinearProgressBar">
+        <attr name="xoerisProgress" format="integer" />
+        <attr name="xoerisMax" format="integer" />
+        <attr name="xoerisProgressColor" format="color" />
+        <attr name="xoerisTrackColor" format="color" />
+        <attr name="xoerisLabel" format="string" />
+        <attr name="xoerisLabelColor" format="color" />
+        <attr name="xoerisIndicatorColor" format="color" />
+        <attr name="xoerisIndicatorTextColor" format="color" />
+        <attr name="xoerisBarHeight" format="dimension" />
+        <attr name="xoerisProgressHeight" format="dimension" />
+        <attr name="xoerisShowIndicator" format="boolean" />
+        <attr name="xoerisLabelAlignWithIndicator" format="boolean" />
+        <attr name="xoerisProgressIcon" format="reference" />
+        <attr name="xoerisProgressStyle" format="enum">
+            <enum name="style1" value="1" />
+            <enum name="style2" value="2" />
+            <enum name="style3" value="3" />
+            <enum name="style4" value="4" />
+            <enum name="style5" value="5" />
+            <enum name="style6" value="6" />
+            <enum name="style7" value="7" />
+            <enum name="style8" value="8" />
+            <enum name="style9" value="9" />
+        </attr>
+        <attr name="xoerisProgressMode" format="enum">
+            <enum name="Horizontal" value="0" />
+            <enum name="Vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <!-- Layout (FrameLayout port) Attributes -->
+    <declare-styleable name="Layout">
+        <attr name="xoerisMeasureAllChildren" format="boolean" />
+        <attr name="xoerisSquareAspect" format="boolean" />
+        <attr name="xoerisGravity" />
+    </declare-styleable>
+
+    <declare-styleable name="Layout_Layout">
+        <attr name="xoerisLayout_gravity" format="flags">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+            <flag name="center_vertical" value="0x10" />
+            <flag name="fill_vertical" value="0x70" />
+            <flag name="center_horizontal" value="0x01" />
+            <flag name="fill_horizontal" value="0x07" />
+            <flag name="center" value="0x11" />
+            <flag name="fill" value="0x77" />
+            <flag name="clip_vertical" value="0x80" />
+            <flag name="clip_horizontal" value="0x08" />
+            <flag name="start" value="0x00800003" />
+            <flag name="end" value="0x00800005" />
+        </attr>
+    </declare-styleable>
+
+    <!-- AmbientGlass Card Attributes -->
+    <declare-styleable name="GlassCard">
+        <attr name="xoerisBlurRadius" />
+        <attr name="xoerisCrystalEffect" format="boolean" />
+    </declare-styleable>
+
+    <!-- EdgeDialog Attributes -->
+    <declare-styleable name="EdgeDialog">
+        <attr name="xoerisEdge" format="enum">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="top" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="xoerisDimAmount" format="float" />
+        <attr name="xoerisEdgeThreshold" format="dimension" />
+        <attr name="xoerisSwipeEnabled" format="boolean" />
+    </declare-styleable>
+
+    <!-- PagerLayout Attributes -->
+    <declare-styleable name="PagerLayout">
+        <attr name="xoerisGravity" />
+        <attr name="xoerisPagerOrientation" format="enum">
+            <enum name="Vertical"   value="0" />
+            <enum name="Horizontal" value="1" />
+        </attr>
+        <attr name="xoerisPagingEnabled" format="boolean" />
+    </declare-styleable>
+
+    <!-- TextField Attributes -->
+    <declare-styleable name="TextField">
+        <attr name="xoerisIcon" format="reference" />
+        <attr name="xoerisIconTint" format="color" />
+        <attr name="xoerisCornerRadius" />
+    </declare-styleable>
+</resources>

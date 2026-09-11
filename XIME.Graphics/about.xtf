@@ -1,0 +1,42 @@
+#XoerisTextFormat2026
+
+{title}=[XIME Graphics — System Overview]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{descriptions}=[XIME.Graphics is the shader and effects layer of the XIME framework for the Elarion ecosystem. It delivers real-time blur surfaces, liquid crystal effects, and kinetic interaction shaders tuned for 60–120fps budgets.]
+#Title and Descriptions can use space and any characters including special characters and symbols
+
+{format}=[Simple]
+#Format that can be use are only Simple, you can use Advance format on .xatf or Xoeris Advanced Text Format
+
+{category}=[Document]
+#Category has many such as Chat, Document, Script, Note. For category will be added in the next update
+
+{version}=[1.0]
+#Version is must be used in any Xoeris Format. Different version have different features, make sure to check the version to prevent errors!
+
+---
+#Must use triple strip without {} after {version}
+
+{content}=[This document provides a complete overview of the current XIME.Graphics architecture, covering every blur engine, crystal effect, and interaction shader.]
+
+{document}=
+#Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
+
+[
+	# XIME Graphics — System Overview
+
+	XIME.Graphics is the shader and effects layer of the XIME framework for the Elarion ecosystem. It delivers real-time blur surfaces, liquid crystal effects, and kinetic interaction shaders tuned for 60–120fps budgets.
+
+	## Blur Engines (`xime.graphics.shader.blur`)
+	Loc: `src/main/java/xime/graphics/shader/blur`
+
+	* **Glass.java** — Real-time stack blur engine with explicit 120fps tuning levers: fewer pixels touched and more cores touching them at once.
+	* **Crystal.java** — High-transparency liquid crystal effect using cached instance blur that reuses buffers instead of reallocating every call, caches applyToBitmap() meshes/gradients, and blurs oversized bitmaps at reduced resolution.
+
+	## Interaction Shaders (`xime.graphics.shader.bloom` / `dash`)
+	Loc: `src/main/java/xime/graphics/shader/bloom`, `src/main/java/xime/graphics/shader/dash`
+
+	* **SwipeBloom.java** — Highlight-softening interaction effect drawing soft edge glow and gradient-based fade shapes.
+	* **SwipeDash.java** — Kinetic dash trail visualizer built on swoosh logic: a stretching oval that moves vertically.
+]

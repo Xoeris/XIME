@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<resources>
+    <string name="app_name">XIME</string>
+    <string name="xoeris_fluid_pill_default_text">Sistema Xoeris</string>
+    <string name="no_track_playing">Nenhuma faixa sendo reproduzida</string>
+    <string name="unknown_artist">Artista desconhecido</string>
+    <string name="ask_System_hint">Procurar...</string>
+    <string name="ask_a_follow_up_use_to_tag_docs_or_files">Peça um acompanhamento. Use @ para marcar documentos ou arquivos.</string>
+</resources>

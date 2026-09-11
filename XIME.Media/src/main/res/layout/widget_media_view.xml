@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <xime.media.ui.VideoView
+        android:id="@+id/media_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <xime.ui.view.ImageView
+        android:id="@+id/media_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        android:visibility="gone" />
+
+    <!-- Playback Controls (Only for Video) -->
+    <LinearLayout
+        android:id="@+id/playbackControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="80dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingBottom="16dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <xime.ui.common.IconButton
+                android:id="@+id/btnPlayPause"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:src="@drawable/xoeris_play_arrow"
+                app:tint="@android:color/white"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <xime.ui.common.IconButton
+                android:id="@+id/btnMute"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/xoeris_volume_up"
+                app:tint="@android:color/white"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+
+            <xime.ui.common.IconButton
+                android:id="@+id/btnSpeed"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_toStartOf="@id/btnMute"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/xoeris_speed_1_00"
+                app:tint="@android:color/white"
+                android:background="?attr/selectableItemBackgroundBorderless" />
+        </RelativeLayout>
+
+        <xime.ui.bar.LinearProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="4dp"
+            app:xoerisMax="1000"
+            app:xoerisProgressStyle="style1"
+            app:xoerisProgressColor="@android:color/white"
+            app:xoerisTrackColor="#33FFFFFF"
+            app:xoerisIndicatorColor="@android:color/white"
+            app:xoerisShowIndicator="true" />
+
+    </LinearLayout>
+
+    <!-- Bottom Tool Bar (Action Bar) -->
+    <LinearLayout
+        android:id="@+id/bottomToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#90000000"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:paddingTop="12dp"
+        android:paddingBottom="24dp">
+
+        <LinearLayout
+            android:id="@+id/btnSend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <xime.ui.view.ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/xoeris_share"
+                app:tint="@android:color/white" />
+            <xime.ui.view.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Send"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <xime.ui.view.ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/xoeris_edit"
+                app:tint="@android:color/white" />
+            <xime.ui.view.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Edit"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnFavorites"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <xime.ui.view.ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/xoeris_album"
+                app:tint="@android:color/white" />
+            <xime.ui.view.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Favorites"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnDelete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <xime.ui.view.ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/xoeris_delete"
+                app:tint="@android:color/white" />
+            <xime.ui.view.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Delete"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnMore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <xime.ui.view.ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/xoeris_more_vert"
+                app:tint="@android:color/white" />
+            <xime.ui.view.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="More"
+                android:textColor="@android:color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</merge>

@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<resources>
+    <string name="app_name">XIME</string>
+    <string name="xoeris_fluid_pill_default_text">نظام زوريس</string>
+    <string name="no_track_playing">لا يوجد مسار اللعب</string>
+    <string name="unknown_artist">فنان غير معروف</string>
+    <string name="ask_System_hint">يبحث...</string>
+    <string name="ask_a_follow_up_use_to_tag_docs_or_files">اطلب المتابعة. استخدم @ لوضع علامة على المستندات أو الملفات.</string>
+</resources>

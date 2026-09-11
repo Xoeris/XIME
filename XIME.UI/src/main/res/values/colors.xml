@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Xoeris Core Palette -->
+    <color name="xoeris_primary">#FFFFD600</color> <!-- Yellow -->
+    <color name="xoeris_accent">#FFFFD600</color> <!-- Yellow -->
+    <color name="xoeris_success">#FFFFD600</color> <!-- Yellow (Unified) -->
+    <color name="xoeris_warning">#FFFF9500</color>
+    <color name="xoeris_error">#FFFF3B30</color>
+
+    <!-- AmbientGlass & Surface -->
+    <color name="xoeris_glass_white">#15FFFFFF</color>
+    <color name="xoeris_glass_dark">#25000000</color>
+    <color name="xoeris_glass_border">#30FFFFFF</color>
+    <color name="xoeris_glass_highlight">#45FFFFFF</color>
+
+    <!-- Backgrounds -->
+    <color name="xoeris_bg_light">#FFF2F2F7</color>
+    <color name="xoeris_bg_dark">#FF1C1C1E</color>
+
+    <!-- Text -->
+    <color name="xoeris_text_primary">@color/xoeris_text_primary_light</color>
+    <color name="xoeris_text_secondary">@color/xoeris_text_secondary_light</color>
+    <color name="xoeris_text_primary_light">#FF000000</color>
+    <color name="xoeris_text_secondary_light">#8E8E93</color>
+    <color name="xoeris_text_primary_dark">#FFFFFF</color>
+    <color name="xoeris_text_secondary_dark">#AEAEB2</color>
+
+    <!-- Effects -->
+    <color name="xoeris_glow_yellow">#40FFD600</color>
+    <color name="xoeris_ripple_light">#20000000</color>
+    <color name="xoeris_ripple_dark">#20FFFFFF</color>
+</resources>
+
+
