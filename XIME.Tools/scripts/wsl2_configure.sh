@@ -10,8 +10,25 @@ THIRD_PARTY="$MODULE_DIR/src/main/cpp/third_party"
 EROFS_DIR="$THIRD_PARTY/erofs-utils"
 E2FS_DIR="$THIRD_PARTY/e2fsprogs"
 
-# NDK Configuration
-NDK_PATH="/mnt/c/Users/Acelbyte/AppData/Local/Android/Sdk/ndk/28.2.13676358"
+# NDK Configuration: point ANDROID_NDK_HOME at your NDK install
+# (e.g. "$ANDROID_HOME/ndk/28.2.13676358"). Falls back to the newest NDK
+# found under ANDROID_HOME, translating Windows paths when needed.
+resolve_ndk() {
+    local cand="${ANDROID_NDK_HOME:-}"
+    if [[ -z "$cand" && -n "${ANDROID_HOME:-}" ]]; then
+        local home="$ANDROID_HOME"
+        case "$home" in
+            [A-Za-z]:*) home="$(wslpath -u "$home" 2>/dev/null || echo "$home")" ;;
+        esac
+        cand="$(ls -d "$home"/ndk/* 2>/dev/null | sort -V | tail -n 1)"
+    fi
+    if [[ -z "$cand" ]]; then
+        echo "error: NDK not found. Set ANDROID_NDK_HOME to your NDK directory." >&2
+        exit 1
+    fi
+    echo "$cand"
+}
+NDK_PATH="$(resolve_ndk)"
 API_LEVEL=24
 HOST_TAG="windows-x86_64"
 TOOLCHAIN="$NDK_PATH/toolchains/llvm/prebuilt/$HOST_TAG"

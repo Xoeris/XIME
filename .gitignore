@@ -31,6 +31,10 @@ tool_finder.py
 .tool_finder_cache.json
 dummy.xtf
 
+# AI-assistant planning artifacts (contain local absolute paths)
+.artifacts/
+*.artifact.md
+
 # Logs / OS
 *.log
 .DS_Store
