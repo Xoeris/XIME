@@ -25,6 +25,12 @@ _xime_jar_build/
 *.jar
 !gradle/wrapper/gradle-wrapper.jar
 
+# Local-only helper scripts / placeholders (kept on disk, never tracked)
+build_jar.py
+tool_finder.py
+.tool_finder_cache.json
+dummy.xtf
+
 # Logs / OS
 *.log
 .DS_Store
