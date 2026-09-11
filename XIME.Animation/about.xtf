@@ -1,6 +1,6 @@
 #XoerisTextFormat2026
 
-{title}=[XIME Animation — System Overview]
+{title}=[XIME Animation, System Overview]
 #Title and Descriptions can use space and any characters including special characters and symbols
 
 {descriptions}=[XIME.Animation is the physics-based motion system of the XIME framework for the Elarion ecosystem. It provides the core animation engine, spring solvers, HyperOS-style interpolators, and high-precision layout and viewport morphing.]
@@ -24,26 +24,26 @@
 #Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
 
 [
-	# XIME Animation — System Overview
+	# XIME Animation, System Overview
 
 	XIME.Animation is the physics-based motion system of the XIME framework for the Elarion ecosystem. It provides the core animation engine, spring solvers, HyperOS-style interpolators, and high-precision layout and viewport morphing.
 
 	## Core Animators (`xime.animation`)
 	Loc: `src/main/java/xime/animation`
 
-	* **Animator.java** — Core framework animation engine and base class for all XIME animators.
-	* **MotionAnimator.java** — Main runtime transformation controller, extending Animator.
-	* **SpringAnimator.java** — Physics-based spring solver, extending Animator.
+	* **Animator.java**, Core framework animation engine and base class for all XIME animators.
+	* **MotionAnimator.java**, Main runtime transformation controller, extending Animator.
+	* **SpringAnimator.java**, Physics-based spring solver, extending Animator.
 
 	## Morphing Engines (`xime.animation`)
 	Loc: `src/main/java/xime/animation`
 
-	* **LayoutMorpher.java** — High-precision layout transition engine; supports matching by transitionName for cross-layout morphing.
-	* **ViewportMorpher.java** — Component-level shape and viewport morphology with dedicated enter and return transitions.
+	* **LayoutMorpher.java**, High-precision layout transition engine; supports matching by transitionName for cross-layout morphing.
+	* **ViewportMorpher.java**, Component-level shape and viewport morphology with dedicated enter and return transitions.
 
 	## Curves & Interpolators (`xime.animation`)
 	Loc: `src/main/java/xime/animation`
 
-	* **MotionCurve.java** — Global registry for framework motion curves, including the STANDARD Material-like curve.
-	* **SpringInterpolator.java** — Smooth spring-like interpolator that mimics the HyperOS / iOS feel.
+	* **MotionCurve.java**, Global registry for framework motion curves, including the STANDARD Material-like curve.
+	* **SpringInterpolator.java**, Smooth spring-like interpolator that mimics the HyperOS / iOS feel.
 ]

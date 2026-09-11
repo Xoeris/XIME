@@ -1,8 +1,8 @@
 # XIME
 
-**Xoeris Interactive Modular Ecosystem — Open-Source Android Java Library**
+**Xoeris Interactive Modular Ecosystem, Open-Source Android Java Library**
 
-XIME is a modular, Java-only Android library ecosystem authored by Xoeris. Instead of assembling apps from stock Android/AndroidX widgets, XIME provides its own layouts, views, dialogs, motion primitives, haptics, persistence, media, and native tooling — every UI primitive in a XIME-based app (e.g. `xime.ui.layout.LinearLayout`) is a XIME subclass rather than a framework widget. Modules are independently includable Gradle libraries that compose through a strict layered dependency graph.
+XIME is a modular, Java-only Android library ecosystem authored by Xoeris. Instead of assembling apps from stock Android/AndroidX widgets, XIME provides its own layouts, views, dialogs, motion primitives, haptics, persistence, media, and native tooling, every UI primitive in a XIME-based app (e.g. `xime.ui.layout.LinearLayout`) is a XIME subclass rather than a framework widget. Modules are independently includable Gradle libraries that compose through a strict layered dependency graph.
 
 This is not a small utility library: the tree holds **~1,070 first-party code files (~40,000 lines of Java plus ~250,000 lines of vendored native C/C++)**, including a full music-engine subsystem, a complete terminal stack, a Room-style ORM, a Glide-style image loader, GPU-backed neural-network prebuilts for five ABIs, and vendored filesystem tooling.
 
@@ -30,7 +30,7 @@ This is not a small utility library: the tree holds **~1,070 first-party code fi
 
 ## Background
 
-Android's recommended app architecture separates apps into UI, domain, and data layers with unidirectional data flow <sup>[1]</sup>. XIME operates one level below that: it is the **UI and infrastructure foundation** those layers are built from. The motivation is consistency and control — a shared design system (custom layouts, glass-morphism widgets, motion curves, haptic language, blur/shader effects) and shared infrastructure (logging, persistence, image loading, background scheduling helpers) reused verbatim across every Xoeris app, instead of reimplemented per project.
+Android's recommended app architecture separates apps into UI, domain, and data layers with unidirectional data flow <sup>[1]</sup>. XIME operates one level below that: it is the **UI and infrastructure foundation** those layers are built from. The motivation is consistency and control, a shared design system (custom layouts, glass-morphism widgets, motion curves, haptic language, blur/shader effects) and shared infrastructure (logging, persistence, image loading, background scheduling helpers) reused verbatim across every Xoeris app, instead of reimplemented per project.
 
 Design principles:
 
@@ -46,7 +46,7 @@ Design principles:
 | Module | Size | Purpose |
 |---|---|---|
 | `XIME.Core` | 24 Java (~1.9k LOC) + native | Foundational utilities (logging, cache, event bus, dispatch, gesture, theme, repo, system), plus a native RIFE frame-interpolation bridge and prebuilt ncnn/Vulkan binaries for 5 ABIs (~117 MB) |
-| `XIME.UI` | 81 Java (~15k LOC), 205 res | Custom layouts (17), views (14), dialogs, menus, adapters, bars, events, drawables — the full design system replacing stock Android components |
+| `XIME.UI` | 81 Java (~15k LOC), 205 res | Custom layouts (17), views (14), dialogs, menus, adapters, bars, events, drawables, the full design system replacing stock Android components |
 | `XIME.Animation` | 7 Java | Motion and transition primitives built on `dynamicanimation` (e.g. `MotionCurve`) |
 | `XIME.Haptic` | 10 Java | Haptic feedback abstractions (e.g. `HapticEngine`) |
 | `XIME.Graphics` | 4 Java (~2.3k LOC) | GPU shaders: adaptive + legacy blur (`AdaptiveBlur`, `LegacyBlur`), bloom (`SwipeBloom`), dash effects |
@@ -114,7 +114,7 @@ flowchart TB
 
 ### Prism (`XIME.Imaging`)
 
-A dependency-free Glide replacement with a chained facade (`Prism.load(url).into(imageView)`): `LruCache` memory cache sized to 1/8 of `maxMemory()`, SHA-1-keyed disk cache under `cacheDir/prism/` capped at 100 MB with LRU eviction, `inSampleSize` downsampled decode against measured view bounds, RecyclerView-safe request tagging (stale results dropped, never flashed), 150 ms cross-fade, and composable transformations — all over plain `HttpURLConnection`.
+A dependency-free Glide replacement with a chained facade (`Prism.load(url).into(imageView)`): `LruCache` memory cache sized to 1/8 of `maxMemory()`, SHA-1-keyed disk cache under `cacheDir/prism/` capped at 100 MB with LRU eviction, `inSampleSize` downsampled decode against measured view bounds, RecyclerView-safe request tagging (stale results dropped, never flashed), 150 ms cross-fade, and composable transformations, all over plain `HttpURLConnection`.
 
 ### Peroom (`XIME.Persistence`)
 
@@ -134,7 +134,7 @@ A self-contained music app-in-a-library (~11.7k LOC): `MusicEngine` + `MusicServ
 
 ### Terminal stack (`XIME.Terminal`)
 
-A complete in-app terminal (~9.4k LOC): Termux-derived emulator/session/view/text-selection layer (`externs.termux`), plus shell bootstrap, PTY natives, a foreground `TerminalService`, and an extra-keys row — with BusyBox binary assets (GPL, see licenses below).
+A complete in-app terminal (~9.4k LOC): Termux-derived emulator/session/view/text-selection layer (`externs.termux`), plus shell bootstrap, PTY natives, a foreground `TerminalService`, and an extra-keys row, with BusyBox binary assets (GPL, see licenses below).
 
 ### Shader pack (`XIME.Graphics`)
 
@@ -158,14 +158,14 @@ The visual and interaction language of `XIME.UI` (layout grid, type scale, color
 
 ![Diagram of a typical app architecture](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-overview.png)
 
-*Layered app architecture: UI layer, optional domain layer, and data layer with unidirectional data flow — the layering XIME's module graph is designed to serve.*
+*Layered app architecture: UI layer, optional domain layer, and data layer with unidirectional data flow, the layering XIME's module graph is designed to serve.*
 **Source:** Android Developers, [Guide to app architecture](https://developer.android.com/topic/architecture) <sup>[1]</sup>
 
 ### Typography Scale
 
 ![Default typography scale for Material Design 3](https://developer.android.com/static/develop/ui/compose/images/m3-typography.png)
 
-*Default type scale for Material Design 3 — Display, Headline, Title, Body, Label, each in Large/Medium/Small — the scale `XIME.UI` text components follow.*
+*Default type scale for Material Design 3, Display, Headline, Title, Body, Label, each in Large/Medium/Small, the scale `XIME.UI` text components follow.*
 **Source:** Android Developers, [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3) <sup>[13]</sup>
 
 ### Color Harmony
@@ -231,9 +231,9 @@ First-party XIME code is Copyright 2026 Xoeris. Vendored components remain under
 | BusyBox binary assets (in `XIME.Terminal`) | GNU GPL v2.0 | Copyleft: distributing apps that link `XIME.Terminal` triggers GPL obligations. Source: https://busybox.net <sup>[7]</sup> |
 | erofs-utils v1.9.3 (in `XIME.Tools`) | GPL-2.0+ **OR** MIT (dual, per-file); XIME uses the MIT option | Vendored at `XIME.Tools/src/main/cpp/third_party/erofs-utils/`. Source: https://github.com/erofs/erofs-utils <sup>[8]</sup> |
 | e2fsprogs v1.47.4 libext2fs (in `XIME.Tools`) | LGPL v2 | Linking into non-GPL works permitted. Source: https://github.com/tytso/e2fsprogs <sup>[9]</sup> |
-| e2fsprogs lib/uuid (in `XIME.Tools`) | BSD 3-Clause | — |
-| e2fsprogs lib/et com_err (in `XIME.Tools`) | MIT (SIPB) | — |
-| e2fsprogs lib/support dict (in `XIME.Tools`) | Kaz Kylheku permissive | — |
+| e2fsprogs lib/uuid (in `XIME.Tools`) | BSD 3-Clause |, |
+| e2fsprogs lib/et com_err (in `XIME.Tools`) | MIT (SIPB) |, |
+| e2fsprogs lib/support dict (in `XIME.Tools`) | Kaz Kylheku permissive |, |
 | ncnn, prebuilt static libs (in `XIME.Core`) | BSD 3-Clause, © THL A29 / Tencent | https://github.com/Tencent/ncnn <sup>[10]</sup> |
 | rife-ncnn-vulkan, design reference for RIFE bridge (in `XIME.Core`) | MIT, © nihui | https://github.com/nihui/rife-ncnn-vulkan <sup>[11]</sup> |
 | Gson | Apache License 2.0 | https://github.com/google/gson <sup>[5]</sup> |
@@ -245,7 +245,7 @@ First-party XIME code is Copyright 2026 Xoeris. Vendored components remain under
 
 ## Consumers
 
-- **MOVA** — native Android productivity app with on-device mood face recognition; its entire UI layer is built on XIME (`XIME.Core`, `XIME.UI`, `XIME.Animation`, `XIME.Haptic`, `XIME.Graphics`, `XIME.Persistence`). MOVA itself is closed-source; XIME is its open-source foundation.
+- **MOVA**, native Android productivity app with on-device mood face recognition; its entire UI layer is built on XIME (`XIME.Core`, `XIME.UI`, `XIME.Animation`, `XIME.Haptic`, `XIME.Graphics`, `XIME.Persistence`). MOVA itself is closed-source; XIME is its open-source foundation.
 
 ## Project Status
 
@@ -271,4 +271,4 @@ XIME is under active development alongside its consumer apps. The module set (no
 
 ## License
 
-XIME first-party code is **open source under the Apache License 2.0** (© 2026 Xoeris) — see [LICENSE.md](LICENSE.md), which also documents the scope exclusions. Third-party and vendored components remain subject to their respective licenses as listed in [Third-Party Software & Licenses](#third-party-software--licenses) and the per-module `NOTICE` files (`XIME.Terminal/NOTICE`, `XIME.Tools/NOTICE`), which are authoritative in case of discrepancy. In short: everything is permissive **except `XIME.Terminal`** (BusyBox GPLv2) — exclude that module if your app must stay closed-source.
+XIME first-party code is **open source under the Apache License 2.0** (© 2026 Xoeris), see [LICENSE.md](LICENSE.md), which also documents the scope exclusions. Third-party and vendored components remain subject to their respective licenses as listed in [Third-Party Software & Licenses](#third-party-software--licenses) and the per-module `NOTICE` files (`XIME.Terminal/NOTICE`, `XIME.Tools/NOTICE`), which are authoritative in case of discrepancy. In short: everything is permissive **except `XIME.Terminal`** (BusyBox GPLv2), exclude that module if your app must stay closed-source.

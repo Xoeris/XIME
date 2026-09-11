@@ -509,7 +509,7 @@ public class PlayerView extends Layout {
                 && !snapshot.artist.trim().equals(currentBioArtist)) {
             updateArtistBio(snapshot.artist, null);
         }
-        // Lyrics progress (Internal mode only — MusicEngine is the source of truth)
+        // Lyrics progress (Internal mode only, MusicEngine is the source of truth)
         if (lyricsView != null) {
             lyricsView.updateProgress(snapshot.positionMs, currentLyrics);
         }
@@ -871,7 +871,7 @@ public class PlayerView extends Layout {
             }
         }
         // The seek bar consumes its own taps/drags, so reaching here means the gesture
-        // was not a seek — a clean tap toggles expand as usual. A fallback-driven seek
+        // was not a seek, a clean tap toggles expand as usual. A fallback-driven seek
         // must never also expand.
         if (action == MotionEvent.ACTION_UP && !isSwiping && !fallbackSeekUsed
                 && (progressBar == null || !progressBar.isDragging())) {

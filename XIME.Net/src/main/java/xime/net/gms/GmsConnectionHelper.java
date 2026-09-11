@@ -6,7 +6,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 /**
- * Small helper for common ConnectionResult handling — not a general Play Services wrapper.
+ * Small helper for common ConnectionResult handling, not a general Play Services wrapper.
  */
 public final class GmsConnectionHelper {
     private GmsConnectionHelper() {}

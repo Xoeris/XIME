@@ -18,8 +18,8 @@ import xime.tools.options.PackOptions;
  * exposing raw integers.
  *
  * <p><strong>Threading</strong>: all methods block the calling thread for the duration
- * of the operation. Callers are responsible for dispatching to a background thread —
- * e.g. via {@code BackgroundZenith.execute()} — before calling any method on this class.
+ * of the operation. Callers are responsible for dispatching to a background thread,
+ * e.g. via {@code BackgroundZenith.execute()}, before calling any method on this class.
  * This matches the XIME convention established in {@code ShellBootstrap} and
  * {@code xime.terminal}.
  *

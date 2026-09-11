@@ -7,7 +7,7 @@ This module includes native code statically linked from or derived from:
 1. erofs-utils v1.9.3
    Copyright (C) 2018-2024 HUAWEI, Inc. and the erofs-utils contributors.
    
-   License: GPL-2.0+ OR MIT (dual-licensed, per-file — see lib/ headers)
+   License: GPL-2.0+ OR MIT (dual-licensed, per-file, see lib/ headers)
    
    Most files in lib/ and include/ carry the SPDX identifier:
        GPL-2.0+ OR MIT
@@ -18,24 +18,24 @@ This module includes native code statically linked from or derived from:
    Vendored at: src/main/cpp/third_party/erofs-utils/
 
 ═══════════════════════════════════════════════════════════════════
-2. e2fsprogs v1.47.4 — libext2fs
+2. e2fsprogs v1.47.4, libext2fs
    Copyright (C) 1993-2024 Theodore Ts'o and others.
    
-   lib/ext2fs/ — GNU Lesser General Public License, version 2 (LGPL v2)
+   lib/ext2fs/, GNU Lesser General Public License, version 2 (LGPL v2)
    ("GNU Library General Public License, version 2" per file headers)
    LGPL permits linking into non-GPL works.
    
-   lib/et/ (com_err) — MIT SIPB License
+   lib/et/ (com_err), MIT SIPB License
    ("Permission to use, copy, modify, and distribute this software [...]"
-    — MIT Student Information Processing Board, 1987)
+   , MIT Student Information Processing Board, 1987)
    
-   lib/uuid/ — BSD 3-Clause License
+   lib/uuid/, BSD 3-Clause License
    ("Redistribution and use in source and binary forms, with or without
     modification, are permitted provided that the following conditions
-    are met: [...]" — Theodore Ts'o, 1996-1999)
+    are met: [...]", Theodore Ts'o, 1996-1999)
    
-   lib/support/ — Kaz Kylheku Permissive License (dict.h/dict.c)
-   and other permissive per-file licenses — see individual file headers.
+   lib/support/, Kaz Kylheku Permissive License (dict.h/dict.c)
+   and other permissive per-file licenses, see individual file headers.
    
    Source: https://github.com/tytso/e2fsprogs (tag: v1.47.4)
    Vendored at: src/main/cpp/third_party/e2fsprogs/

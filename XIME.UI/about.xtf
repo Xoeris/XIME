@@ -1,6 +1,6 @@
 #XoerisTextFormat2026
 
-{title}=[XIME UI — System Overview]
+{title}=[XIME UI, System Overview]
 #Title and Descriptions can use space and any characters including special characters and symbols
 
 {descriptions}=[XIME.UI is the component library of the XIME framework for the Elarion ecosystem. It provides a comprehensive suite of glassy, HyperOS-inspired views, layouts, controls, dialogs, menus, drawables, and utilities built on shared blur capture coordination.]
@@ -24,117 +24,117 @@
 #Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
 
 [
-	# XIME UI — System Overview
+	# XIME UI, System Overview
 
 	XIME.UI is the component library of the XIME framework for the Elarion ecosystem. It provides a comprehensive suite of glassy, HyperOS-inspired views, layouts, controls, dialogs, menus, drawables, and utilities built on shared blur capture coordination.
 
 	## Activities & Fragments (`xime.ui.activity` / `fragment`)
 	Loc: `src/main/java/xime/ui/activity`, `src/main/java/xime/ui/fragment`
 
-	* **Activity.java** — Base activity with edge-to-edge enablement.
-	* **SplashActivity.java** — Splash base; subclasses set content after view initialization.
-	* **Fragment.java** — Base fragment for XIME surfaces.
+	* **Activity.java**, Base activity with edge-to-edge enablement.
+	* **SplashActivity.java**, Splash base; subclasses set content after view initialization.
+	* **Fragment.java**, Base fragment for XIME surfaces.
 
 	## Base Views (`xime.ui.view`)
 	Loc: `src/main/java/xime/ui/view`
 
-	* **View.java** — Foundational base class for all XIME components with AccessibilityEvent and DrawableEvent support.
-	* **TextView.java** — Specialized typography system.
-	* **EditText.java** — Styled text input.
-	* **ImageView.java / PictureView.java** — Image rendering surfaces.
-	* **GlassView.java** — Real-time capturing blur surface.
-	* **GapView.java** — Pure spacing component.
-	* **ChartView.java** — Multi-mode analytics chart widget with 25dp rounded glass border.
-	* **ChatView.java** — [SARAH-ACTIVATED] Absolute chat action component.
-	* **DailySpinView.java** — Daily spin wheel widget with Crystal 3D glass bevel per sector.
-	* **MapView.java / MapTileView.java** — Map surface rendering stitched OpenStreetMap tiles.
-	* **OrbitRow.java / OrbitScroller.java** — Orbital row scroller with cached 16ms scroll measurements.
+	* **View.java**, Foundational base class for all XIME components with AccessibilityEvent and DrawableEvent support.
+	* **TextView.java**, Specialized typography system.
+	* **EditText.java**, Styled text input.
+	* **ImageView.java / PictureView.java**, Image rendering surfaces.
+	* **GlassView.java**, Real-time capturing blur surface.
+	* **GapView.java**, Pure spacing component.
+	* **ChartView.java**, Multi-mode analytics chart widget with 25dp rounded glass border.
+	* **ChatView.java**, [SARAH-ACTIVATED] Absolute chat action component.
+	* **DailySpinView.java**, Daily spin wheel widget with Crystal 3D glass bevel per sector.
+	* **MapView.java / MapTileView.java**, Map surface rendering stitched OpenStreetMap tiles.
+	* **OrbitRow.java / OrbitScroller.java**, Orbital row scroller with cached 16ms scroll measurements.
 
 	## Layouts (`xime.ui.layout`)
 	Loc: `src/main/java/xime/ui/layout`
 
-	* **Layout.java** — Base layout coordinating shared blur/crystal panel captures across all glass surfaces.
-	* **BlurLayout.java** — Glass-blurred container with ThemeManager-aware theme modes.
-	* **CardLayout.java** — Glassy card container.
-	* **ConstraintLayout.java** — ConstraintSet-based morphing between layout states preserving view identity.
-	* **CoordinatorLayout.java** — Centralized interaction coordination.
-	* **CycleLayout.java** — High-performance list renderer with forced zero elevation.
-	* **FlowLayout.java** — Flowing container with fling-state awareness.
-	* **LayerLayout.java** — Depth layering container.
-	* **LinearLayout.java / RelativeLayout.java** — Sequential and anchored node layouts.
-	* **NestedScrollView.java** — Scrolling container.
-	* **OrbitItemLayout.java** — Item container for orbital browsing.
-	* **OverlayLayout.java** — Transparent layer for floating content.
-	* **PagerLayout.java** — Pager built on SineReflect physics supporting View paging and ViewPager2 adapters.
-	* **RecyclerView.java** — Recycling container.
-	* **ReflectLayout.java** — Reflection surface layout.
-	* **StackLayout.java** — Depth-aware layering container.
+	* **Layout.java**, Base layout coordinating shared blur/crystal panel captures across all glass surfaces.
+	* **BlurLayout.java**, Glass-blurred container with ThemeManager-aware theme modes.
+	* **CardLayout.java**, Glassy card container.
+	* **ConstraintLayout.java**, ConstraintSet-based morphing between layout states preserving view identity.
+	* **CoordinatorLayout.java**, Centralized interaction coordination.
+	* **CycleLayout.java**, High-performance list renderer with forced zero elevation.
+	* **FlowLayout.java**, Flowing container with fling-state awareness.
+	* **LayerLayout.java**, Depth layering container.
+	* **LinearLayout.java / RelativeLayout.java**, Sequential and anchored node layouts.
+	* **NestedScrollView.java**, Scrolling container.
+	* **OrbitItemLayout.java**, Item container for orbital browsing.
+	* **OverlayLayout.java**, Transparent layer for floating content.
+	* **PagerLayout.java**, Pager built on SineReflect physics supporting View paging and ViewPager2 adapters.
+	* **RecyclerView.java**, Recycling container.
+	* **ReflectLayout.java**, Reflection surface layout.
+	* **StackLayout.java**, Depth-aware layering container.
 
 	## Bars & Controls (`xime.ui.bar` / `common`)
 	Loc: `src/main/java/xime/ui/bar`, `src/main/java/xime/ui/common`
 
-	* **LinearProgressBar.java** — Multi-state progress bar including vertical slider mode.
-	* **CircleProgressBar.java** — Circular progress and track bar.
-	* **SearchBar.java** — Glassy real-time search interface with keyboard focus handling.
-	* **Button.java / IconButton.java / FloatingButton.java** — Interaction components with system haptics disabled.
-	* **CheckBox.java** — Squircle checkbox with smooth gradient and vector checkmark path.
-	* **Chip.java** — Compact selector pill with end-truncation (marquee unsupported by Material chips).
-	* **Dropdown.java** — Premium dark glassmorphic selection menu.
-	* **RadioButton.java** — Radio selection group item.
-	* **Switch.java** — MIUI-style smooth toggle.
-	* **TextField.java** — Text field reading standard and custom Xoeris attributes.
+	* **LinearProgressBar.java**, Multi-state progress bar including vertical slider mode.
+	* **CircleProgressBar.java**, Circular progress and track bar.
+	* **SearchBar.java**, Glassy real-time search interface with keyboard focus handling.
+	* **Button.java / IconButton.java / FloatingButton.java**, Interaction components with system haptics disabled.
+	* **CheckBox.java**, Squircle checkbox with smooth gradient and vector checkmark path.
+	* **Chip.java**, Compact selector pill with end-truncation (marquee unsupported by Material chips).
+	* **Dropdown.java**, Premium dark glassmorphic selection menu.
+	* **RadioButton.java**, Radio selection group item.
+	* **Switch.java**, MIUI-style smooth toggle.
+	* **TextField.java**, Text field reading standard and custom Xoeris attributes.
 
 	## Dialogs (`xime.ui.dialog`)
 	Loc: `src/main/java/xime/ui/dialog`
 
-	* **Dialog.java** — Standalone panel window with solid 50% opacity theme-aware backdrop.
-	* **BottomDialog.java** — [SARAH-ACTIVATED] Ultra-responsive glass-blurred bottom sheet.
-	* **EdgeDialog.java** — Side-anchored sliding panel.
-	* **PopUpDialog.java** — Glassmorphism bottom notification popup sliding above the navigation bar.
-	* **SurfaceDialog.java** — Full-screen layered dialog surface.
-	* **DatePickerDialog.java / TimePickerDialog.java** — Dark glassmorphic date and analog/digital time pickers.
+	* **Dialog.java**, Standalone panel window with solid 50% opacity theme-aware backdrop.
+	* **BottomDialog.java**, [SARAH-ACTIVATED] Ultra-responsive glass-blurred bottom sheet.
+	* **EdgeDialog.java**, Side-anchored sliding panel.
+	* **PopUpDialog.java**, Glassmorphism bottom notification popup sliding above the navigation bar.
+	* **SurfaceDialog.java**, Full-screen layered dialog surface.
+	* **DatePickerDialog.java / TimePickerDialog.java**, Dark glassmorphic date and analog/digital time pickers.
 
 	## Menus (`xime.ui.menu`)
 	Loc: `src/main/java/xime/ui/menu`
 
-	* **HeaderMenu.java** — Top-bar navigation with collapsed/expanded height-safe layout.
-	* **SubHeaderMenu.java** — Secondary navigation with layered search support.
-	* **FooterMenu.java** — Bottom navigation with elevator mode and centered add-button protocol.
-	* **TitleMenu.java** — [SARAH-ACTIVATED] Simplified header displaying only a centered title.
-	* **FloatingMenu.java** — Detached navigation pill with background ring and center anchor.
+	* **HeaderMenu.java**, Top-bar navigation with collapsed/expanded height-safe layout.
+	* **SubHeaderMenu.java**, Secondary navigation with layered search support.
+	* **FooterMenu.java**, Bottom navigation with elevator mode and centered add-button protocol.
+	* **TitleMenu.java**, [SARAH-ACTIVATED] Simplified header displaying only a centered title.
+	* **FloatingMenu.java**, Detached navigation pill with background ring and center anchor.
 
 	## Drawables (`xime.ui.drawable`)
 	Loc: `src/main/java/xime/ui/drawable`
 
-	* **AnimatedGradientDrawable.java** — Non-stop animated gradient with angle rotation and HSL morphing.
-	* **AccuracyRadiusDrawable.java** — Translucent IP geolocation accuracy circle.
-	* **PulsingDotDrawable.java** — Animated glowing dot for precise location.
-	* **SpectrumDrawable.java** — Audio spectrum rendering drawable.
-	* **SunPathDrawable.java** — Sun path arc with glow and core layers.
+	* **AnimatedGradientDrawable.java**, Non-stop animated gradient with angle rotation and HSL morphing.
+	* **AccuracyRadiusDrawable.java**, Translucent IP geolocation accuracy circle.
+	* **PulsingDotDrawable.java**, Animated glowing dot for precise location.
+	* **SpectrumDrawable.java**, Audio spectrum rendering drawable.
+	* **SunPathDrawable.java**, Sun path arc with glow and core layers.
 
 	## Events (`xime.ui.event`)
 	Loc: `src/main/java/xime/ui/event`
 
-	* **AccessibilityEvent.java / DrawableEvent.java / KeyEvent.java / ParentEvent.java** — Component event contracts.
-	* **ReflectParallaxEvent.java / OriginReflectParallaxEvent.java / SourceReflectParallaxEvent.java** — Parallax reflection event family.
+	* **AccessibilityEvent.java / DrawableEvent.java / KeyEvent.java / ParentEvent.java**, Component event contracts.
+	* **ReflectParallaxEvent.java / OriginReflectParallaxEvent.java / SourceReflectParallaxEvent.java**, Parallax reflection event family.
 
 	## Utilities (`xime.ui.utils`)
 	Loc: `src/main/java/xime/ui/utils`
 
-	* **Window.java** — Fully standalone window operations with zero Dialog references.
-	* **Views.java** — Hierarchical traversal and modification helpers.
-	* **Kinetics.java** — Physics calculations for motion.
-	* **Motion.java** — Common interaction logic helpers.
-	* **Elevator.java** — Elevated quick-action component with ring and anchor.
-	* **WeatherController.java** — Weather widget state controller with error fallback.
-	* **RifeFrameInterpolator.java** — Wraps ncnn-vulkan RIFE-style two-frame + timestep interpolation models.
+	* **Window.java**, Fully standalone window operations with zero Dialog references.
+	* **Views.java**, Hierarchical traversal and modification helpers.
+	* **Kinetics.java**, Physics calculations for motion.
+	* **Motion.java**, Common interaction logic helpers.
+	* **Elevator.java**, Elevated quick-action component with ring and anchor.
+	* **WeatherController.java**, Weather widget state controller with error fallback.
+	* **RifeFrameInterpolator.java**, Wraps ncnn-vulkan RIFE-style two-frame + timestep interpolation models.
 
 	## Resources (`res`)
 	Loc: `src/main/res`
 
-	* **values/** — attrs.xml, colors.xml (+ values-night), dimens.xml, ids.xml, strings.xml, styles.xml, themes.xml.
-	* **layout/** — activity, dialog, player_view, player_bio/lyrics/queue, widget_map/media/weather, search_bar, text_view, media rows, ai_chat_widget, lyrics_widget, splash_activity.
-	* **drawable/** — xoeris_* vector icon set covering media, navigation, system toggles, and playback speeds.
-	* **anim/ + interpolator/** — xoeris_standard_interpolator, xoeris_spring, xoeris_standard motion definitions.
-	* **menu/** — weather_footer_menu.
+	* **values/**, attrs.xml, colors.xml (+ values-night), dimens.xml, ids.xml, strings.xml, styles.xml, themes.xml.
+	* **layout/**, activity, dialog, player_view, player_bio/lyrics/queue, widget_map/media/weather, search_bar, text_view, media rows, ai_chat_widget, lyrics_widget, splash_activity.
+	* **drawable/**, xoeris_* vector icon set covering media, navigation, system toggles, and playback speeds.
+	* **anim/ + interpolator/**, xoeris_standard_interpolator, xoeris_spring, xoeris_standard motion definitions.
+	* **menu/**, weather_footer_menu.
 ]

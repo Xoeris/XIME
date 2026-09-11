@@ -63,7 +63,7 @@ public class BlurLayout extends Layout {
     private final Matrix shaderMatrix = new Matrix();
     private boolean showBorder = true;
     private final Paint strokePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    /** ThemeManager listener — held as a field so we can remove it in onDetachedFromWindow. */
+    /** ThemeManager listener, held as a field so we can remove it in onDetachedFromWindow. */
     private final ThemeManager.OnThemeChangedListener mThemeListener = mode -> {
         if (mManualThemeMode == ThemeMode.AUTO) {
             updateTheme(mode == ThemeManager.Mode.DARK ? LegacyBlur.ThemeMode.DARK : LegacyBlur.ThemeMode.LIGHT);
@@ -215,7 +215,7 @@ public class BlurLayout extends Layout {
             updateTheme(tm.isDark() ? LegacyBlur.ThemeMode.DARK : LegacyBlur.ThemeMode.LIGHT);
             tm.addListener(mThemeListener);
         } catch (IllegalStateException ignored) {
-            // ThemeManager not yet initialised — theme stays at the value set during init().
+            // ThemeManager not yet initialised, theme stays at the value set during init().
         }
     }
 
@@ -548,7 +548,7 @@ public class BlurLayout extends Layout {
         try {
             return ThemeManager.get().isDark() ? LegacyBlur.ThemeMode.DARK : LegacyBlur.ThemeMode.LIGHT;
         } catch (IllegalStateException e) {
-            // ThemeManager not yet initialised — fall back to the cached activeTheme.
+            // ThemeManager not yet initialised, fall back to the cached activeTheme.
             return this.activeTheme != null ? this.activeTheme : LegacyBlur.ThemeMode.LIGHT;
         }
     }

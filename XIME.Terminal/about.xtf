@@ -1,6 +1,6 @@
 #XoerisTextFormat2026
 
-{title}=[XIME Terminal — System Overview]
+{title}=[XIME Terminal, System Overview]
 #Title and Descriptions can use space and any characters including special characters and symbols
 
 {descriptions}=[XIME.Terminal is the terminal emulation system of the XIME framework for the Elarion ecosystem. It combines a native PTY layer, a full VT/xterm emulator core, session services, and glassy terminal views with extra keys support.]
@@ -24,24 +24,24 @@
 #Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
 
 [
-	# XIME Terminal — System Overview
+	# XIME Terminal, System Overview
 
 	XIME.Terminal is the terminal emulation system of the XIME framework for the Elarion ecosystem. It combines a high-performance native PTY layer, the complete Termux terminal engine (VT/xterm emulation, Unicode/wcwidth, circular buffer, gesture & text selection cursor controllers), background services, and glassy themed views with extra keys support.
 
 	## Termux Engine Externs (`externs.termux`)
 	Loc: `src/main/java/externs/termux`, `src/main/cpp/externs/termux`
 
-	* **externs.termux.terminal** — Complete Termux VT/xterm emulator, packed terminal screen buffers, `ByteQueue`, `KeyHandler`, `TextStyle`, `TerminalColorScheme`, and PTY JNI bridge.
-	* **externs.termux.view** — Termux view rendering pipeline (`TerminalRenderer`), text selection cursor controllers (`TextSelectionCursorController`, `TextSelectionHandleView`), and gestures (`GestureAndScaleRecognizer`).
-	* **termux.c** — Native subprocess forkpty, UTF-8 termios setup, window resizing, and process lifecycle bridge compiled directly into `libxime-terminal.so`.
+	* **externs.termux.terminal**, Complete Termux VT/xterm emulator, packed terminal screen buffers, `ByteQueue`, `KeyHandler`, `TextStyle`, `TerminalColorScheme`, and PTY JNI bridge.
+	* **externs.termux.view**, Termux view rendering pipeline (`TerminalRenderer`), text selection cursor controllers (`TextSelectionCursorController`, `TextSelectionHandleView`), and gestures (`GestureAndScaleRecognizer`).
+	* **termux.c**, Native subprocess forkpty, UTF-8 termios setup, window resizing, and process lifecycle bridge compiled directly into `libxime-terminal.so`.
 
 	## XIME Extension Layer (`xime.terminal.*`)
 	Loc: `src/main/java/xime/terminal`
 
-	* **xime.terminal.session.TerminalSession** — XIME session lifecycle, connecting Termux terminal streams with `BackgroundZenith` async thread pools and XIME callbacks.
-	* **xime.terminal.view.TerminalView** — XIME terminal container view integrating `ThemeManager`, `BatchRenderingZenith` frame coalescing, and Termux rendering.
-	* **xime.terminal.view.ExtraKeysRow** — Extra keys bar (Esc, Tab, Ctrl, Alt, Arrow keys) dispatched directly to active sessions.
-	* **xime.terminal.service.TerminalService** — Android foreground service managing multi-session lifecycles in the background.
-	* **xime.terminal.bootstrap.ShellBootstrap** — Shell executable bootstrapping and permission manager.
-	* **xime.terminal.IntegrationExample** — Usage demonstration for activity integration.
+	* **xime.terminal.session.TerminalSession**, XIME session lifecycle, connecting Termux terminal streams with `BackgroundZenith` async thread pools and XIME callbacks.
+	* **xime.terminal.view.TerminalView**, XIME terminal container view integrating `ThemeManager`, `BatchRenderingZenith` frame coalescing, and Termux rendering.
+	* **xime.terminal.view.ExtraKeysRow**, Extra keys bar (Esc, Tab, Ctrl, Alt, Arrow keys) dispatched directly to active sessions.
+	* **xime.terminal.service.TerminalService**, Android foreground service managing multi-session lifecycles in the background.
+	* **xime.terminal.bootstrap.ShellBootstrap**, Shell executable bootstrapping and permission manager.
+	* **xime.terminal.IntegrationExample**, Usage demonstration for activity integration.
 ]

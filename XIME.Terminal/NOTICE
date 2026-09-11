@@ -3,7 +3,7 @@ Copyright 2026 Xoeris
 
 This module contains first-party code (package `xime.terminal`: session
 lifecycle, shell bootstrap, PTY natives, foreground service, extra-keys row)
-licensed under the Apache License, Version 2.0 — see ../../LICENSE.md.
+licensed under the Apache License, Version 2.0, see ../../LICENSE.md.
 
 This module includes code derived from:
 

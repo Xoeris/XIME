@@ -21,24 +21,24 @@ find_library(z-lib    z)
 set(TP "${CMAKE_SOURCE_DIR}/third_party")
 
 # ---------------------------------------------------------------------------
-# liberofs (static) — erofs-utils v1.9.3, lib/ (GPL-2.0+ OR MIT)
+# liberofs (static), erofs-utils v1.9.3, lib/ (GPL-2.0+ OR MIT)
 #
 # Explicitly listed rather than globbed to avoid accidentally pulling in
 # compressor_lz4.c etc. which unconditionally include <lz4.h>/<lzma.h>
 # headers that are NOT in the NDK sysroot.
 #
 # Excluded:
-#   compressor_lz4.c / compressor_lz4hc.c  — unconditional #include <lz4.h>
-#   compressor_liblzma.c                   — unconditional #include <lzma.h>
-#   compressor_libzstd.c                   — unconditional #include <zstd.h>
-#   compressor_libdeflate.c                — unconditional #include <libdeflate.h>
-#   backends/fanotify.c                    — requires Linux fanotify (not Bionic)
-#   backends/nbd.c                         — Network Block Device (not on Android)
-#   backends/ublk.c                        — userspace block (not on Android)
-#   gzran.c                                — requires zlib inflate internals
-#   importer.c                             — OCI/tar/VMDK import, not needed
-#   tar.c                                  — tar parsing (pulls gzran/lzma)
-#   vmdk.c                                 — VMware disk format
+#   compressor_lz4.c / compressor_lz4hc.c , unconditional #include <lz4.h>
+#   compressor_liblzma.c                  , unconditional #include <lzma.h>
+#   compressor_libzstd.c                  , unconditional #include <zstd.h>
+#   compressor_libdeflate.c               , unconditional #include <libdeflate.h>
+#   backends/fanotify.c                   , requires Linux fanotify (not Bionic)
+#   backends/nbd.c                        , Network Block Device (not on Android)
+#   backends/ublk.c                       , userspace block (not on Android)
+#   gzran.c                               , requires zlib inflate internals
+#   importer.c                            , OCI/tar/VMDK import, not needed
+#   tar.c                                 , tar parsing (pulls gzran/lzma)
+#   vmdk.c                                , VMware disk format
 # ---------------------------------------------------------------------------
 set(EROFS_SOURCES
     "${TP}/erofs-utils/lib/base64.c"
@@ -104,7 +104,7 @@ target_compile_options(erofs PRIVATE
     -Wno-missing-field-initializers)
 
 # ---------------------------------------------------------------------------
-# libext2fs (static) — e2fsprogs v1.47.4
+# libext2fs (static), e2fsprogs v1.47.4
 #
 # Includes: lib/ext2fs, lib/et, lib/uuid, lib/support, lib/e2p
 #
@@ -114,7 +114,7 @@ target_compile_options(erofs PRIVATE
 #   tdbtool.c, tst_*.c  (test programs)
 #
 # Note: crc32c.c and sha256.c have main() only under #ifdef DEBUG / test
-# guards evaluated at runtime, so they ARE safe to include — the main()
+# guards evaluated at runtime, so they ARE safe to include, the main()
 # bodies are inside #ifdef DEBUG blocks. gen_crc32ctable.c is a code
 # generator run at build time only, so it IS excluded.
 # ---------------------------------------------------------------------------
@@ -132,18 +132,18 @@ list(FILTER EXT2FS_SOURCES EXCLUDE REGEX ".*/brel_ma\\.c$")
 list(FILTER EXT2FS_SOURCES EXCLUDE REGEX ".*/irel_ma\\.c$")
 list(FILTER EXT2FS_SOURCES EXCLUDE REGEX ".*/qcow2\\.c$") # often depends on external headers if not configured right
 
-# lib/et — com_err (MIT SIPB license)
+# lib/et, com_err (MIT SIPB license)
 file(GLOB ET_SOURCES "${TP}/e2fsprogs/lib/et/*.c")
 list(FILTER ET_SOURCES EXCLUDE REGEX ".*/test_.*\\.c$")
 
-# lib/uuid — UUID generation (BSD 3-clause)
+# lib/uuid, UUID generation (BSD 3-clause)
 file(GLOB UUID_SOURCES "${TP}/e2fsprogs/lib/uuid/*.c")
 list(FILTER UUID_SOURCES EXCLUDE REGEX ".*/gen_uuid_nt\\.c$")  # Windows-only
 
-# lib/support — dict, etc. (permissive)
+# lib/support, dict, etc. (permissive)
 file(GLOB SUPPORT_SOURCES "${TP}/e2fsprogs/lib/support/*.c")
 
-# lib/e2p — extended properties (LGPL v2)
+# lib/e2p, extended properties (LGPL v2)
 file(GLOB E2P_SOURCES "${TP}/e2fsprogs/lib/e2p/*.c")
 list(FILTER E2P_SOURCES EXCLUDE REGEX ".*/tst_.*\\.c$")
 
@@ -183,7 +183,7 @@ target_compile_options(ext2fs PRIVATE
     -Wno-char-subscripts)
 
 # ---------------------------------------------------------------------------
-# libxime-tools (shared) — the JNI bridge .so packaged by Gradle
+# libxime-tools (shared), the JNI bridge .so packaged by Gradle
 # ---------------------------------------------------------------------------
 add_library(xime-tools SHARED
     xime_tools_jni.cpp)
@@ -222,6 +222,6 @@ target_link_libraries(xime-tools
 # if the NDK version or min API level is changed.
 #
 # Compression backends not included in this build:
-#   LZ4  — add -DHAVE_LIBLZ4 and link liblz4 to re-enable
-#   LZMA — add -DHAVE_LIBLZMA and link liblzma to re-enable
-#   ZSTD — add -DHAVE_LIBZSTD and link libzstd to re-enable
+#   LZ4 , add -DHAVE_LIBLZ4 and link liblz4 to re-enable
+#   LZMA, add -DHAVE_LIBLZMA and link liblzma to re-enable
+#   ZSTD, add -DHAVE_LIBZSTD and link libzstd to re-enable

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # =============================================================================
-# wsl2_configure.sh — XIME.Tools native pre-build configuration
+# wsl2_configure.sh, XIME.Tools native pre-build configuration
 # =============================================================================
 set -euo pipefail
 

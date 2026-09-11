@@ -10,7 +10,7 @@ import xime.media.Queue;
  * InternalPlaybackSession wraps the XIME.Media internal Music engine
  * behind the PlaybackSession interface. It observes MusicEngine's live signals and
  * pushes accurate PlaybackSnapshot events to registered listeners.
- * This is a pure adapter — no internal playback logic is altered.
+ * This is a pure adapter, no internal playback logic is altered.
  */
 public class InternalPlaybackSession implements PlaybackSession {
 

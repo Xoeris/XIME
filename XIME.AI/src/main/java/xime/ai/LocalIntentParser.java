@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Phase2.5 local intent parser — ordered pattern matching, data-driven table intent→phrases/regex.
+ * Phase2.5 local intent parser, ordered pattern matching, data-driven table intent→phrases/regex.
  * Pure Java, no Android/network deps (handoff §4.1 recommendation: lives in XIME.AI / hyperion-core shim).
  * Covers full Intent enum per §4.3; unmatched → QUERY with rawText preserved for future NLU.
  * Device-hint extraction reuses DeviceRegistry concept (deviceHint / target device string in params).
@@ -58,7 +58,7 @@ public final class LocalIntentParser {
                     return p;
                 });
 
-        // TV — must be before SYSTEM_SHUTDOWN (turn off TV should not be shutdown) and before APP_LAUNCH
+        // TV, must be before SYSTEM_SHUTDOWN (turn off TV should not be shutdown) and before APP_LAUNCH
         add(Intent.TV_POWER, Arrays.asList("turn\\s+on.*tv", "turn\\s+off.*tv", "\\btv\\s+on\\b", "\\btv\\s+off\\b"),
                 (m,n)->{
                     Map<String,Object> p=new HashMap<>();
@@ -83,7 +83,7 @@ public final class LocalIntentParser {
         add(Intent.SYSTEM_STATUS, Arrays.asList("\\bstatus\\b", "\\bhow are you\\b", "\\bsystem status\\b", "\\bhow.*doing\\b"),
                 (m,n)->empty());
 
-        // NAVIGATE — must be before APP_LAUNCH (open browser ... is more specific than open X)
+        // NAVIGATE, must be before APP_LAUNCH (open browser ... is more specific than open X)
         add(Intent.NAVIGATE, Arrays.asList("open\\s+browser\\s+on\\s+(laptop|phone|tv)", "navigate\\s+to\\s+(.+)", "go\\s+to\\s+(.+)\\s+on\\s+(laptop|phone|tv)"),
                 (m,n)->{
                     Map<String,Object> p=new HashMap<>();
@@ -93,7 +93,7 @@ public final class LocalIntentParser {
                     return p;
                 });
 
-        // APP_LAUNCH — generic, keep last before fallback
+        // APP_LAUNCH, generic, keep last before fallback
         add(Intent.APP_LAUNCH, Arrays.asList("open\\s+(.+)", "launch\\s+(.+)", "start\\s+(.+)", "run\\s+(.+)"),
                 (m,n)->{
                     Map<String,Object> p=new HashMap<>();

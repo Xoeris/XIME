@@ -1,6 +1,6 @@
 #XoerisTextFormat2026
 
-{title}=[XIME Performance — System Overview]
+{title}=[XIME Performance, System Overview]
 #Title and Descriptions can use space and any characters including special characters and symbols
 
 {descriptions}=[XIME.Performance is the adaptive performance and memory optimization suite of the XIME framework for the Elarion ecosystem. It hosts the Zenith Suite: a collection of focused optimizers covering frame budgets, GPU clipping, caching, pooling, prefetching, and memory discipline.]
@@ -24,41 +24,41 @@
 #Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
 
 [
-	# XIME Performance — System Overview
+	# XIME Performance, System Overview
 
 	XIME.Performance is the adaptive performance and memory optimization suite of the XIME framework for the Elarion ecosystem. It hosts the Zenith Suite: a collection of focused optimizers covering frame budgets, GPU clipping, caching, pooling, prefetching, and memory discipline.
 
 	## Rendering & Frame Tracking (`xime.performance`)
 	Loc: `src/main/java/xime/performance`
 
-	* **DirtyLineTracker.java** — Tracks dirty lines with an auto-growing BitSet for partial invalidation.
+	* **DirtyLineTracker.java**, Tracks dirty lines with an auto-growing BitSet for partial invalidation.
 
 	## Caching (`xime.performance.cache`)
 	Loc: `src/main/java/xime/performance/cache`
 
-	* **CacheManager.java** — Shared cache management for performance-sensitive paths.
+	* **CacheManager.java**, Shared cache management for performance-sensitive paths.
 
 	## Zenith Suite (`xime.system.optimization.zenith`)
 	Loc: `src/main/java/xime/system/optimization/zenith`
 
-	* **CoreZenith.java** — Central hub binding media caches and entity conversions.
-	* **DataZenith.java** — TrackEntity-to-Metadata conversion utilities.
-	* **FrameBudgetZenith.java** — Per-frame budget tracking with markFrameStart() and isOverBudget().
-	* **GPUClippingZenith.java** — Canvas clipping to view bounds and hardware layer enabling.
-	* **BatchRenderingZenith.java** — Batches view updates into grouped render passes.
-	* **InvisibleCullZenith.java** — Culls invisible children from ViewGroups.
-	* **VirtualizationZenith.java** — Visibility checks for virtualized containers.
-	* **AdapterZenith.java** — RecyclerView list-diff detection and smooth scroll setup.
-	* **IncrementalZenith.java** — Incremental batch processing of large collections.
-	* **RefreshZenith.java** — Throttled refresh decisions.
-	* **HandlerZenith.java** — Main-thread handler posting utilities.
-	* **BackgroundZenith.java** — Background execution with UI thread marshalling.
-	* **AsynZenith.java** — Asynchronous task utilities.
-	* **MemoryZenith.java** — Generic key-value memory cache.
-	* **CachingZenith.java** — Additional generic cache layer.
-	* **PagingMemoryZenith.java** — List paging helpers with page-size math.
-	* **ObjectPoolingZenith.java** — Object pool with acquire/release lifecycle.
-	* **RAMSingletonZenith.java** — Typed in-memory singleton store.
-	* **PrefetchZenith.java** — Image prefetching around visible windows.
-	* **OverheadZenith.java** — Overhead profiling via measure(label, runnable).
+	* **CoreZenith.java**, Central hub binding media caches and entity conversions.
+	* **DataZenith.java**, TrackEntity-to-Metadata conversion utilities.
+	* **FrameBudgetZenith.java**, Per-frame budget tracking with markFrameStart() and isOverBudget().
+	* **GPUClippingZenith.java**, Canvas clipping to view bounds and hardware layer enabling.
+	* **BatchRenderingZenith.java**, Batches view updates into grouped render passes.
+	* **InvisibleCullZenith.java**, Culls invisible children from ViewGroups.
+	* **VirtualizationZenith.java**, Visibility checks for virtualized containers.
+	* **AdapterZenith.java**, RecyclerView list-diff detection and smooth scroll setup.
+	* **IncrementalZenith.java**, Incremental batch processing of large collections.
+	* **RefreshZenith.java**, Throttled refresh decisions.
+	* **HandlerZenith.java**, Main-thread handler posting utilities.
+	* **BackgroundZenith.java**, Background execution with UI thread marshalling.
+	* **AsynZenith.java**, Asynchronous task utilities.
+	* **MemoryZenith.java**, Generic key-value memory cache.
+	* **CachingZenith.java**, Additional generic cache layer.
+	* **PagingMemoryZenith.java**, List paging helpers with page-size math.
+	* **ObjectPoolingZenith.java**, Object pool with acquire/release lifecycle.
+	* **RAMSingletonZenith.java**, Typed in-memory singleton store.
+	* **PrefetchZenith.java**, Image prefetching around visible windows.
+	* **OverheadZenith.java**, Overhead profiling via measure(label, runnable).
 ]

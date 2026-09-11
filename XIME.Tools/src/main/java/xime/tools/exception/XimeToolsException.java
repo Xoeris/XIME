@@ -6,8 +6,8 @@ package xime.tools.exception;
  *
  * <p>Subclasses provide more specific error categories:
  * <ul>
- *   <li>{@link FilesystemCorruptException} — image data is corrupt or truncated.</li>
- *   <li>{@link UnsupportedFsException} — the filesystem type is not supported by this backend.</li>
+ *   <li>{@link FilesystemCorruptException}, image data is corrupt or truncated.</li>
+ *   <li>{@link UnsupportedFsException}, the filesystem type is not supported by this backend.</li>
  * </ul>
  */
 public class XimeToolsException extends Exception {

@@ -51,7 +51,7 @@ android {
 task wsl2ConfigureNative(type: Exec) {
     def scriptPath = "${projectDir.absolutePath.replace('\\', '/')}/scripts/wsl2_configure.sh"
     commandLine 'wsl', '-e', 'bash', '-c', scriptPath
-    // Do not fail the build on Windows hosts that do not have WSL2 installed —
+    // Do not fail the build on Windows hosts that do not have WSL2 installed,
     // in that case the pre-generated headers in android-config/ must already
     // exist (e.g. checked in from a WSL2 machine).
     ignoreExitValue true

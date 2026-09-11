@@ -50,7 +50,7 @@ public class HeaderMenu extends Layout {
     private FloatingMenu floatingOverlay;
     private Layout floatingContainer;
 
-    /** ThemeManager listener — registered in onAttachedToWindow, removed in onDetachedFromWindow. */
+    /** ThemeManager listener, registered in onAttachedToWindow, removed in onDetachedFromWindow. */
     private final ThemeManager.OnThemeChangedListener mThemeListener = mode -> refreshTheme();
 
     public HeaderMenu(@NonNull Context context) {
@@ -175,7 +175,7 @@ public class HeaderMenu extends Layout {
         try {
             ThemeManager.get().addListener(mThemeListener);
         } catch (IllegalStateException ignored) {
-            // ThemeManager not yet initialised — refreshTheme() above used BlurLayout fallback.
+            // ThemeManager not yet initialised, refreshTheme() above used BlurLayout fallback.
         }
     }
 
@@ -205,7 +205,7 @@ public class HeaderMenu extends Layout {
         try {
             isDark = ThemeManager.get().isDark();
         } catch (IllegalStateException e) {
-            // ThemeManager not yet initialised — fall back to BlurLayout's own state.
+            // ThemeManager not yet initialised, fall back to BlurLayout's own state.
             isDark = mGlassWrapper.getActiveTheme() == LegacyBlur.ThemeMode.DARK;
         }
         int primaryColor = getContext().getColor(isDark ? R.color.xoeris_text_primary : android.R.color.black);

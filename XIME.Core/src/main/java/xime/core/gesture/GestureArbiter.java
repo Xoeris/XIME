@@ -18,11 +18,11 @@ import java.util.List;
 import xime.core.dispatch.Dispatcher;
 
 /**
- * XIME.Core — Central gesture ownership arbiter.
+ * XIME.Core, Central gesture ownership arbiter.
  *
  * <p>Coordinates touch ownership across independently-built XIME components that do not share
  * a parent-child view hierarchy (e.g. {@code HeaderMenu.floatingOverlay}, which attaches to the
- * window's decor view, has no common ViewGroup ancestor with a {@code PlayerView} swipe region —
+ * window's decor view, has no common ViewGroup ancestor with a {@code PlayerView} swipe region,
  * making {@code requestDisallowInterceptTouchEvent} ineffective between them).
  *
  * <h3>Claim model</h3>
@@ -31,11 +31,11 @@ import xime.core.dispatch.Dispatcher;
  *       gesture mask, priority, and an optional expiry.</li>
  *   <li>{@link ClaimResult#GRANTED} is returned when no higher-priority claim owns any
  *       overlapping gesture axis, or when the component's priority beats the existing owner.</li>
- *   <li>{@link ClaimResult#DENIED} is returned otherwise — the component should stop consuming
+ *   <li>{@link ClaimResult#DENIED} is returned otherwise, the component should stop consuming
  *       that touch stream.</li>
  *   <li>The owner calls {@link #release} on ACTION_UP or ACTION_CANCEL to free the claim.</li>
  *   <li>Claims expire automatically after {@code durationMs} ms via {@link Dispatcher#main}
- *       — eliminates the need for raw {@code android.os.Handler} instances in consumers.</li>
+ *      , eliminates the need for raw {@code android.os.Handler} instances in consumers.</li>
  * </ol>
  *
  * <h3>Gesture mask constants</h3>
@@ -47,7 +47,7 @@ import xime.core.dispatch.Dispatcher;
  * remove it in {@code onDetachedFromWindow()} via {@link #addListener}/{@link #removeListener}.
  *
  * <h3>Threading</h3>
- * {@link #requestClaim} and {@link #release} may be called from any thread — state is guarded by
+ * {@link #requestClaim} and {@link #release} may be called from any thread, state is guarded by
  * {@link #mLock}. Listener callbacks are always delivered on the main thread via
  * {@link Dispatcher#main}.
  */
@@ -92,7 +92,7 @@ public final class GestureArbiter {
     // -------------------------------------------------------------------------
 
     /**
-     * Notified on the main thread when gesture ownership changes — typically when a
+     * Notified on the main thread when gesture ownership changes, typically when a
      * higher-priority component steals a claim from an existing owner, or when any
      * active claim is released.
      */
@@ -129,7 +129,7 @@ public final class GestureArbiter {
     }
 
     /**
-     * Initialises the singleton. Safe to call multiple times — subsequent calls are no-ops.
+     * Initialises the singleton. Safe to call multiple times, subsequent calls are no-ops.
      * The context is used only to extract the application context; no reference to an
      * Activity/View is retained.
      */
@@ -152,7 +152,7 @@ public final class GestureArbiter {
         @NonNull  final Object claimant;
         /**
          * Screen-coordinate rect the claim covers. Null means the entire window.
-         * Stored as a snapshot — mutations to the caller's Rect after claim are not tracked.
+         * Stored as a snapshot, mutations to the caller's Rect after claim are not tracked.
          */
         @Nullable final Rect region;
         /** Combination of {@code GESTURE_*} bits this claim covers. */
@@ -195,7 +195,7 @@ public final class GestureArbiter {
      */
     private final List<Claim> mActiveClaims = new ArrayList<>();
 
-    /** WeakReference listener list — same pattern as ThemeManager. */
+    /** WeakReference listener list, same pattern as ThemeManager. */
     private final List<WeakReference<OnClaimChangedListener>> mListeners = new ArrayList<>();
     private final Object mListenerLock = new Object();
 
@@ -214,7 +214,7 @@ public final class GestureArbiter {
      *
      * <p>Typically called on {@link MotionEvent#ACTION_DOWN} from the component's touch handler.
      *
-     * @param claimant    the requesting component — used as an identity key; any non-null object.
+     * @param claimant    the requesting component, used as an identity key; any non-null object.
      * @param region      screen-coordinate Rect the component occupies, or {@code null} for whole window.
      * @param gestureMask combination of {@code GESTURE_*} constants this component wants to own.
      * @param priority    claim priority; higher wins. Use consistent constants across your app,
@@ -236,10 +236,10 @@ public final class GestureArbiter {
             for (Claim existing : mActiveClaims) {
                 if (existing.conflictsWith(gestureMask) && existing.contains(testX, testY)) {
                     if (existing.priority > priority) {
-                        // Higher-priority claim wins — deny this request.
+                        // Higher-priority claim wins, deny this request.
                         return ClaimResult.DENIED;
                     }
-                    // This claimant has higher or equal priority — bump the existing claim out.
+                    // This claimant has higher or equal priority, bump the existing claim out.
                     cancelExpiry(existing);
                     mActiveClaims.remove(existing);
                     break;
@@ -394,7 +394,7 @@ public final class GestureArbiter {
      * create a raw Handler in this class.
      */
     private void scheduleOnMain(@NonNull Runnable runnable, long delayMs) {
-        // Dispatcher.main() runs immediately if already on main — for delayed scheduling
+        // Dispatcher.main() runs immediately if already on main, for delayed scheduling
         // we wrap with a Dispatcher.io() sleep + Dispatcher.main() handoff.
         Dispatcher.io(() -> {
             try {

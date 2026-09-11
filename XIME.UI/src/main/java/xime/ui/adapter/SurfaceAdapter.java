@@ -94,7 +94,7 @@ public class SurfaceAdapter extends FragmentStateAdapter {
 
     /**
      * Internal host Fragment. Not meant to be instantiated directly outside
-     * this adapter — its only job is to give ViewPager2 a Fragment to manage
+     * this adapter, its only job is to give ViewPager2 a Fragment to manage
      * while the actual content lives in a SurfaceDialog.
      */
     public static class SurfaceDialogPageFragment extends Fragment {

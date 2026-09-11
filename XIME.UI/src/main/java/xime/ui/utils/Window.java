@@ -18,7 +18,7 @@ import xime.ui.dialog.Dialog;
 
 /**
  * Fully standalone counterpart to Window. Contains NO references to
- * android.app.Dialog anywhere — every method here operates on raw Views,
+ * android.app.Dialog anywhere, every method here operates on raw Views,
  * WindowManager.LayoutParams, and Dialog instead.
  */
 public class Window {

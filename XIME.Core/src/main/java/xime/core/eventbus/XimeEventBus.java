@@ -13,9 +13,9 @@ import java.util.Map;
 import xime.core.dispatch.Dispatcher;
 
 /**
- * XIME.Core — Lightweight typed event bus for cross-module pub/sub.
+ * XIME.Core, Lightweight typed event bus for cross-module pub/sub.
  *
- * <p>Decouples modules that cannot directly depend on each other — e.g. {@code XIME.Media}
+ * <p>Decouples modules that cannot directly depend on each other, e.g. {@code XIME.Media}
  * posting track-change events that a {@code XIME.UI} mini-player widget receives, without either
  * module importing the other. Both instead depend only on {@code XIME.Core}.
  *
@@ -48,7 +48,7 @@ import xime.core.dispatch.Dispatcher;
  * {@link #post} delivery.
  *
  * <h3>Superclass matching</h3>
- * {@link #post} walks the event's class hierarchy — posting a {@code FooEvent extends BaseEvent}
+ * {@link #post} walks the event's class hierarchy, posting a {@code FooEvent extends BaseEvent}
  * will also notify subscribers registered for {@code BaseEvent}. This allows base event
  * contracts across modules.
  *
@@ -93,7 +93,7 @@ public final class XimeEventBus {
     }
 
     /**
-     * Initialises the singleton. Safe to call multiple times — subsequent calls are no-ops.
+     * Initialises the singleton. Safe to call multiple times, subsequent calls are no-ops.
      */
     public static void init() {
         if (sInstance == null) {
@@ -133,7 +133,7 @@ public final class XimeEventBus {
 
     /**
      * Subscribes to events of type {@code eventClass}. The subscriber is held via a
-     * {@link WeakReference} — if the subscriber is garbage-collected without calling
+     * {@link WeakReference}, if the subscriber is garbage-collected without calling
      * {@link #unsubscribe}, no leak occurs; the dead reference is pruned on the next delivery.
      *
      * <p>Safe to call from any thread.
@@ -210,7 +210,7 @@ public final class XimeEventBus {
 
         Dispatcher.main(() -> {
             for (Subscriber<?> sub : snapshot) {
-                //noinspection unchecked — type safety guaranteed by subscribe()'s generic bound
+                //noinspection unchecked, type safety guaranteed by subscribe()'s generic bound
                 ((Subscriber<Object>) sub).onEvent(event);
             }
         });

@@ -6,7 +6,7 @@ SPDX-License-Identifier: `Apache-2.0` (first-party code; see §2 for scope exclu
 
 ---
 
-## 1. First-party XIME code — Apache License, Version 2.0
+## 1. First-party XIME code, Apache License, Version 2.0
 
 All original code authored for XIME (Java, C/C++, Gradle scripts, resources, and
 documentation in this repository) is licensed under the Apache License, Version 2.0:
@@ -28,14 +28,14 @@ Use `SPDX-License-Identifier: Apache-2.0` in new first-party files.
 
 ---
 
-## 2. Scope exclusions — components NOT covered by §1
+## 2. Scope exclusions, components NOT covered by §1
 
 The following components ship in this repository under **their own licenses**,
 which take precedence over §1 for those files. Per-module `NOTICE` files
 (`XIME.Terminal/NOTICE`, `XIME.Tools/NOTICE`) are authoritative in case of
 discrepancy with this summary.
 
-### 2.1 `XIME.Terminal` — GNU GPL v2.0 applies
+### 2.1 `XIME.Terminal`, GNU GPL v2.0 applies
 
 `XIME.Terminal` bundles **BusyBox binary assets**
 (© 1998–2021 Erik Andersen, Rob Landley, Denys Vlasenko and others,
@@ -50,14 +50,14 @@ module included. This is the sole XIME module with copyleft obligations.
 [Android Terminal Emulator](https://github.com/jackpal/Android-Terminal-Emulator)
 (© 2007–2011 Jack Palevich) under the Apache License 2.0.
 
-### 2.2 `XIME.Tools` native third-party code — per-file licenses
+### 2.2 `XIME.Tools` native third-party code, per-file licenses
 
 Vendored at `XIME.Tools/src/main/cpp/third_party/`
 (see `XIME.Tools/NOTICE` for full detail):
 
 | Code | License | Terms |
 |---|---|---|
-| erofs-utils v1.9.3 | GPL-2.0+ **OR** MIT (dual, per-file) | XIME uses the **MIT option** — permissive, no copyleft on the combined work |
+| erofs-utils v1.9.3 | GPL-2.0+ **OR** MIT (dual, per-file) | XIME uses the **MIT option**, permissive, no copyleft on the combined work |
 | e2fsprogs v1.47.4 `lib/ext2fs` | LGPL v2 | Linking into non-GPL works permitted |
 | e2fsprogs `lib/et` (com_err) | MIT (SIPB) | Permissive |
 | e2fsprogs `lib/uuid` | BSD 3-Clause | Permissive |
@@ -66,17 +66,17 @@ Vendored at `XIME.Tools/src/main/cpp/third_party/`
 ### 2.3 `XIME.Core` native third-party code
 
 - [ncnn](https://github.com/Tencent/ncnn) prebuilt static libraries
-  (© 2017 THL A29 Limited, a Tencent company) — **BSD 3-Clause**. Permissive.
+  (© 2017 THL A29 Limited, a Tencent company), **BSD 3-Clause**. Permissive.
 - RIFE bridge design modeled on
   [rife-ncnn-vulkan](https://github.com/nihui/rife-ncnn-vulkan)
-  (© 2020 nihui) — **MIT**. Permissive.
+  (© 2020 nihui), **MIT**. Permissive.
 
 ### 2.4 External dependencies (not shipped in this repository)
 
 Resolved at build time via Gradle; each governed by its own license:
 
-- Gson, AndroidX libraries, Material Components — Apache License 2.0.
-- Google Play Services (Location, Base) — Google APIs Terms of Service
+- Gson, AndroidX libraries, Material Components, Apache License 2.0.
+- Google Play Services (Location, Base), Google APIs Terms of Service
   (https://developers.google.com/terms).
 
 ---

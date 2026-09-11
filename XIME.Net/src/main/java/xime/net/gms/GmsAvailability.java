@@ -5,7 +5,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
 /**
- * XIME.Net — thin Xoeris-native wrapper around play-services-base common scaffolding.
+ * XIME.Net, thin Xoeris-native wrapper around play-services-base common scaffolding.
  * Narrowly scoped to GoogleApiAvailability checks / ConnectionResult handling.
  * Package xime.net.gms avoids collision with hyperion-net / xime.ai protocol networking.
  * Hyperion does NOT depend on this (gated closed per Phase2.7); standalone for XIME consumers.

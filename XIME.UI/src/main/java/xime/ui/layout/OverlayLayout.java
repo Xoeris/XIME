@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 /**
- * OverlayLayout — Transparent layer for floating content.
+ * OverlayLayout, Transparent layer for floating content.
  */
 public class OverlayLayout extends Layout {
     public OverlayLayout(@NonNull Context context) {

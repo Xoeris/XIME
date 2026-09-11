@@ -91,7 +91,7 @@ public class VideoInterpolation implements Choreographer.FrameCallback {
 
             // If the source is already delivering frames faster than we're
             // being asked to draw them (e.g. a 60fps source on a 60Hz
-            // display), there's nothing to interpolate — skip the warp so we
+            // display), there's nothing to interpolate, skip the warp so we
             // don't burn cycles mesh-warping a near-zero motion field.
             boolean sourceNeedsUpsampling = frameDurationNanos > (long) (1_000_000_000L / 50);
             if (!sourceNeedsUpsampling) {
@@ -188,7 +188,7 @@ public class VideoInterpolation implements Choreographer.FrameCallback {
     private native float nativeInterpolate(float start, float target, float fraction);
 
     // Block-matching motion estimation between two captured RGB_565 frames.
-    // Called from VideoView's background capture thread — never from doFrame.
+    // Called from VideoView's background capture thread, never from doFrame.
     public static native void nativeComputeMotionField(ByteBuffer prevBuffer, ByteBuffer currBuffer, int width, int height);
 
     // Builds a warp mesh by bilinearly sampling the motion field computed above.

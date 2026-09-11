@@ -1,6 +1,6 @@
 package xime.ai;
 
-// Per Phase1 §3.2 — variable params (e.g. MEDIA_VOLUME delta) go in HyperionMessage.params
+// Per Phase1 §3.2, variable params (e.g. MEDIA_VOLUME delta) go in HyperionMessage.params
 public enum Intent {
     MEDIA_PLAY,
     MEDIA_PAUSE,

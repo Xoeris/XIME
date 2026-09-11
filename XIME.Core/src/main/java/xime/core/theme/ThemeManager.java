@@ -15,7 +15,7 @@ import java.util.List;
 import xime.core.dispatch.Dispatcher;
 
 /**
- * XIME.Core — Central theme state manager.
+ * XIME.Core, Central theme state manager.
  *
  * <p>Single source of truth for dark/light mode across all XIME System Apps. Replaces the
  * previous architecture where each {@code BlurLayout} independently read
@@ -93,7 +93,7 @@ public final class ThemeManager {
     }
 
     /**
-     * Initialises the singleton. Safe to call multiple times — subsequent calls are no-ops.
+     * Initialises the singleton. Safe to call multiple times, subsequent calls are no-ops.
      * Accepts any {@link Context}; the Application context is extracted internally so no
      * Activity or View reference is retained.
      */
@@ -125,7 +125,7 @@ public final class ThemeManager {
 
     /**
      * Weak-reference listener list. Using {@link WeakReference} means Views/Activities that
-     * forget to call {@link #removeListener} do not cause memory leaks — dead references are
+     * forget to call {@link #removeListener} do not cause memory leaks, dead references are
      * purged on the next {@link #notifyListeners} pass.
      */
     private final List<WeakReference<OnThemeChangedListener>> mListeners = new ArrayList<>();
@@ -148,7 +148,7 @@ public final class ThemeManager {
     // -------------------------------------------------------------------------
 
     /**
-     * Returns the current effective mode. Always {@link Mode#DARK} or {@link Mode#LIGHT} —
+     * Returns the current effective mode. Always {@link Mode#DARK} or {@link Mode#LIGHT},
      * never {@code null}. Safe to call from any thread.
      */
     @NonNull
@@ -191,7 +191,7 @@ public final class ThemeManager {
 
     /**
      * Registers a listener. The listener is held via a {@link WeakReference}, so if the caller
-     * is garbage-collected without calling {@link #removeListener}, no leak occurs — the dead
+     * is garbage-collected without calling {@link #removeListener}, no leak occurs, the dead
      * reference is silently pruned on the next notification cycle.
      *
      * <p>Call this in {@code onAttachedToWindow()} and pair with {@link #removeListener} in
@@ -199,7 +199,7 @@ public final class ThemeManager {
      */
     public void addListener(@NonNull OnThemeChangedListener listener) {
         synchronized (mListenerLock) {
-            // Avoid duplicates — check if the same listener is already registered.
+            // Avoid duplicates, check if the same listener is already registered.
             for (WeakReference<OnThemeChangedListener> ref : mListeners) {
                 if (ref.get() == listener) return;
             }

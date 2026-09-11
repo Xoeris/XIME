@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Fused implementation — wraps FusedLocationProviderClient with LocationManager fallback.
+ * Fused implementation, wraps FusedLocationProviderClient with LocationManager fallback.
  * Kept in XIME.Location (not XIME.Core) so Hyperion can exclude play-services when not needed.
  */
 public class FusedLocationProvider implements LocationProvider {

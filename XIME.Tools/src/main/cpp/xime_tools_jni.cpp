@@ -1,16 +1,16 @@
 /**
  * xime_tools_jni.cpp
- * XIME.Tools — JNI bridge layer
+ * XIME.Tools, JNI bridge layer
  *
  * All entry points are declared extern "C" so the JNI runtime can locate them
  * by their mangled-free symbol names (Java_xime_tools_<Class>_<method>), matching
  * the convention established by pty.c in XIME.Terminal.
  *
  * Error code table (XIME_ERR_* constants):
- *   0              — success
- *   -1 .. -99      — general native errors (I/O, ENOMEM, etc.)
- *   -100 .. -200   — corrupt/truncated image  → FilesystemCorruptException (Java)
- *   -300           — unsupported FS           → UnsupportedFsException (Java)
+ *   0             , success
+ *   -1 .. -99     , general native errors (I/O, ENOMEM, etc.)
+ *   -100 .. -200  , corrupt/truncated image  → FilesystemCorruptException (Java)
+ *   -300          , unsupported FS           → UnsupportedFsException (Java)
  *
  * These ranges must stay in sync with the Java constants in XimeTools.java:
  *   ERR_CORRUPT_MIN = -200
@@ -147,7 +147,7 @@ static ProgressCtx *createProgressCtx(JNIEnv *env, jobject listener) {
     env->DeleteLocalRef(cls);
 
     if (!midProgress || !midComplete || !midError) {
-        LOGE("Could not find ProgressListener methods — check interface signature");
+        LOGE("Could not find ProgressListener methods, check interface signature");
         return nullptr;
     }
 

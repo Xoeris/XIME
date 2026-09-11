@@ -231,7 +231,7 @@ public class LinearProgressBar extends View {
         }
         // Also propagate through the real Android ViewParent chain. Ancestor ViewGroups
         // (PlayerView swipe/expand handling, pagers, scroll containers) only honor the
-        // framework flag — without this they keep receiving onInterceptTouchEvent and
+        // framework flag, without this they keep receiving onInterceptTouchEvent and
         // steal the seek gesture mid-drag, racing the swipe logic.
         try {
             android.view.ViewParent real = getParent();

@@ -7,8 +7,8 @@ package xime.tools;
  *
  * <p>Magic byte references:
  * <ul>
- *   <li>EROFS — 4-byte magic {@code 0xE0F5E1E2} at byte offset 1024 (superblock start).</li>
- *   <li>EXT4  — 2-byte magic {@code 0xEF53} at superblock offset 56 (absolute offset 1080,
+ *   <li>EROFS, 4-byte magic {@code 0xE0F5E1E2} at byte offset 1024 (superblock start).</li>
+ *   <li>EXT4 , 2-byte magic {@code 0xEF53} at superblock offset 56 (absolute offset 1080,
  *               since the superblock begins at byte 1024).</li>
  * </ul>
  */

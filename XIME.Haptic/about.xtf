@@ -1,6 +1,6 @@
 #XoerisTextFormat2026
 
-{title}=[XIME Haptic — System Overview]
+{title}=[XIME Haptic, System Overview]
 #Title and Descriptions can use space and any characters including special characters and symbols
 
 {descriptions}=[XIME.Haptic is the haptic feedback system of the XIME framework for the Elarion ecosystem. It provides a layered vibration architecture spanning primitive composition, predefined effects, and amplitude-modulated waveforms, with patterns, profiles, intensities, and SARAH-activated sound effects.]
@@ -24,25 +24,25 @@
 #Document can be added here, you can use Markdown format too. You must use [content] block for every contents except chat.
 
 [
-	# XIME Haptic — System Overview
+	# XIME Haptic, System Overview
 
 	XIME.Haptic is the haptic feedback system of the XIME framework for the Elarion ecosystem. It provides a layered vibration architecture spanning primitive composition, predefined effects, and amplitude-modulated waveforms, with patterns, profiles, intensities, and SARAH-activated sound effects.
 
 	## Core Engine (`xime.haptic`)
 	Loc: `src/main/java/xime/haptic`
 
-	* **Haptic.java** — Core haptic interface contract.
-	* **HapticEngine.java** — Main orchestrator for physics-linked vibrations with double-trigger protection.
-	* **HapticController.java** — Layered implementation: high-fidelity primitive composition (API 30+), predefined effects (API 29+), and amplitude-modulated waveforms (API 26+).
-	* **HapticRuntime.java** — Runtime dispatch and state management.
-	* **AnimatorHaptic.java** — Bridges animation progress to haptic feedback.
+	* **Haptic.java**, Core haptic interface contract.
+	* **HapticEngine.java**, Main orchestrator for physics-linked vibrations with double-trigger protection.
+	* **HapticController.java**, Layered implementation: high-fidelity primitive composition (API 30+), predefined effects (API 29+), and amplitude-modulated waveforms (API 26+).
+	* **HapticRuntime.java**, Runtime dispatch and state management.
+	* **AnimatorHaptic.java**, Bridges animation progress to haptic feedback.
 
 	## Vocabulary (`xime.haptic`)
 	Loc: `src/main/java/xime/haptic`
 
-	* **HapticEvent.java** — Haptic event descriptor.
-	* **HapticIntensity.java** — Intensity level enum.
-	* **HapticPattern.java** — Pre-defined vibration sequences with specialized patterns for UX interactions.
-	* **HapticProfile.java** — Mappings between interactions and haptics.
-	* **HapticSoundEffect.java** — [SARAH-ACTIVATED] Audible feedback layer for scroll events and interactions.
+	* **HapticEvent.java**, Haptic event descriptor.
+	* **HapticIntensity.java**, Intensity level enum.
+	* **HapticPattern.java**, Pre-defined vibration sequences with specialized patterns for UX interactions.
+	* **HapticProfile.java**, Mappings between interactions and haptics.
+	* **HapticSoundEffect.java**, [SARAH-ACTIVATED] Audible feedback layer for scroll events and interactions.
 ]
