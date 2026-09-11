@@ -1,5 +1,5 @@
 XIME.Terminal
-Copyright 2026 Xoeris
+Copyright 2018-2026 Xoeris
 
 This module contains first-party code (package `xime.terminal`: session
 lifecycle, shell bootstrap, PTY natives, foreground service, extra-keys row)

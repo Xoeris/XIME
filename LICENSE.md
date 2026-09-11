@@ -1,6 +1,6 @@
 # XIME License
 
-Copyright 2026 Xoeris. All rights reserved unless otherwise stated in this file.
+Copyright 2018-2026 Xoeris. All rights reserved unless otherwise stated in this file.
 
 SPDX-License-Identifier: `Apache-2.0` (first-party code; see §2 for scope exclusions)
 
