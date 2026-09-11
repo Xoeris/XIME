@@ -4,6 +4,8 @@
 
 XIME is a modular, Java-only Android library ecosystem authored by Xoeris. Instead of assembling apps from stock Android/AndroidX widgets, XIME provides its own layouts, views, dialogs, motion primitives, haptics, persistence, media, and native tooling — every UI primitive in a XIME-based app (e.g. `xime.ui.layout.LinearLayout`) is a XIME subclass rather than a framework widget. Modules are independently includable Gradle libraries that compose through a strict layered dependency graph.
 
+This is not a small utility library: the tree holds **~1,070 first-party code files (~40,000 lines of Java plus ~250,000 lines of vendored native C/C++)**, including a full music-engine subsystem, a complete terminal stack, a Room-style ORM, a Glide-style image loader, GPU-backed neural-network prebuilts for five ABIs, and vendored filesystem tooling.
+
 > **Status:** Active development. XIME backs production consumer apps (see [Consumers](#consumers)); API surface is stabilizing but may still change between releases.
 
 ---
@@ -39,24 +41,24 @@ Design principles:
 
 ## Module Map
 
-14 modules, `compileSdk 37`, `minSdk 24`, Java 11:
+14 modules, `compileSdk 37`, `minSdk 24`, Java 11. Sizes are first-party files/lines (vendored native excluded):
 
-| Module | Package | Purpose |
+| Module | Size | Purpose |
 |---|---|---|
-| `XIME.Core` | `xime.core` | Foundational utilities, logging, and shared infrastructure; statically bundles ncnn (Vulkan) plus a native RIFE frame-interpolation bridge (`rife_ncnn_bridge.cpp`) |
-| `XIME.UI` | `xime.ui` | Custom layouts, views, dialogs, and widgets replacing stock Android components; motion, blur, and glass-morphism system |
-| `XIME.Animation` | `xime.animation` | Motion and transition primitives built on `dynamicanimation` (e.g. `MotionCurve`) |
-| `XIME.Haptic` | `xime.haptic` | Haptic feedback abstractions (e.g. `HapticEngine`) |
-| `XIME.Graphics` | `xime.graphics` | Custom drawing, shaders, and blur effects |
-| `XIME.Imaging` | `xime.imaging` | `Prism`: a lightweight, dependency-free Glide-style image loader (memory + disk cache, downsampling, cross-fade, transformations) |
-| `XIME.AI` | `xime.ai` | Pure-JVM client protocol, device registry, and local intent parsing for Hyperion (internal XIME AI subsystem); sole external dep is Gson |
-| `XIME.Location` | `xime.location` | Location helpers layered on Google Play Services Location |
-| `XIME.Net` | `xime.net` | Network helpers layered on Play Services Base |
-| `XIME.Media` | `xime.media` | Media playback/library components on AndroidX Media |
-| `XIME.Performance` | `xime.performance`, `xime.system` | Performance and system introspection utilities |
-| `XIME.Persistence` | `xime.persistence.peroom` | `Peroom`: a Room-style annotation ORM (`@PeEntity`, `@PeDao`, `@PeQuery`, `@PeDatabase`, migrations) with `LiveData` support |
-| `XIME.Terminal` | `xime.terminal` | In-app terminal emulation, derived from Android Terminal Emulator, with BusyBox binary assets (note GPL obligations below) |
-| `XIME.Tools` | `xime.tools` | Native filesystem tooling over JNI (`xime_tools_jni.cpp`): erofs/ext4 builders and inspectors via vendored erofs-utils and e2fsprogs |
+| `XIME.Core` | 24 Java (~1.9k LOC) + native | Foundational utilities (logging, cache, event bus, dispatch, gesture, theme, repo, system), plus a native RIFE frame-interpolation bridge and prebuilt ncnn/Vulkan binaries for 5 ABIs (~117 MB) |
+| `XIME.UI` | 81 Java (~15k LOC), 205 res | Custom layouts (17), views (14), dialogs, menus, adapters, bars, events, drawables — the full design system replacing stock Android components |
+| `XIME.Animation` | 7 Java | Motion and transition primitives built on `dynamicanimation` (e.g. `MotionCurve`) |
+| `XIME.Haptic` | 10 Java | Haptic feedback abstractions (e.g. `HapticEngine`) |
+| `XIME.Graphics` | 4 Java (~2.3k LOC) | GPU shaders: adaptive + legacy blur (`AdaptiveBlur`, `LegacyBlur`), bloom (`SwipeBloom`), dash effects |
+| `XIME.Imaging` | 14 Java (~1.3k LOC) | `Prism`: a lightweight, dependency-free Glide-style image loader (memory + disk cache, downsampling, cross-fade, transformations) |
+| `XIME.AI` | 11 Java | Pure-JVM client protocol, device registry, and local intent parsing for Hyperion (internal XIME AI subsystem); sole external dep is Gson |
+| `XIME.Location` | 2 Java | Location helpers layered on Google Play Services Location |
+| `XIME.Net` | 2 Java | Network helpers layered on Play Services Base |
+| `XIME.Media` | 56 Java (~11.7k LOC) | Complete music subsystem: playback engine + foreground service, media scanner, playlist/track Room store, 7-band DSP equalizer, lyrics system, spectrum analyzer views, orbit UI, metadata editor, sleep timer, background preloading |
+| `XIME.Performance` | 22 Java | 20-class optimization suite plus system-introspection package |
+| `XIME.Persistence` | 15 Java | `Peroom`: a Room-style annotation ORM (`@PeEntity`, `@PeDao`, `@PeQuery`, `@PeDatabase`, migrations) with `LiveData` support |
+| `XIME.Terminal` | 34 Java (~9.4k LOC) | Full in-app terminal stack: Termux-derived emulator/session/view/text-selection layer plus shell bootstrap, PTY, service, and extra-keys row; BusyBox binary assets (note GPL obligations below) |
+| `XIME.Tools` | 11 Java + JNI | Native filesystem tooling over JNI: erofs/ext4 builders and inspectors via vendored erofs-utils v1.9.3 and e2fsprogs v1.47.4 (756 vendored files) |
 
 ## Dependency Architecture
 
@@ -124,7 +126,19 @@ A `java-library` module (no Android SDK) implementing the client-side protocol, 
 
 ### Native engine (`XIME.Core`)
 
-`XIME.Core` statically bundles [ncnn](https://github.com/Tencent/ncnn) (BSD 3-Clause) with Vulkan GPU support, prebuilt for `arm64-v8a`, `armeabi-v7a`, `riscv64`, `x86`, and `x86_64`, backing a native frame-interpolation engine (`rife_ncnn_bridge.cpp`) modeled on [rife-ncnn-vulkan](https://github.com/nihui/rife-ncnn-vulkan) (MIT), exposed to Java as `xime.ui.utils.RifeFrameInterpolator`.
+`XIME.Core` statically bundles [ncnn](https://github.com/Tencent/ncnn) (BSD 3-Clause) with Vulkan GPU support, prebuilt for `arm64-v8a` (16.6 MB), `armeabi-v7a` (12.7 MB), `riscv64` (28.1 MB), `x86` (27.3 MB), and `x86_64` (32.1 MB), backing a native frame-interpolation engine (`rife_ncnn_bridge.cpp`, `lucine-interpolator.c`) modeled on [rife-ncnn-vulkan](https://github.com/nihui/rife-ncnn-vulkan) (MIT), exposed to Java as `xime.ui.utils.RifeFrameInterpolator`.
+
+### Music subsystem (`XIME.Media`)
+
+A self-contained music app-in-a-library (~11.7k LOC): `MusicEngine` + `MusicService` playback core, `MusicScannerService`, playlist/track Room persistence, a 7-module DSP equalizer (acoustic space, bass drive, echo, resonance, spatializer, volume boost), a lyrics system, spectrum analyzer views, orbit-style player UI, metadata editor, sleep timer, and background preloading.
+
+### Terminal stack (`XIME.Terminal`)
+
+A complete in-app terminal (~9.4k LOC): Termux-derived emulator/session/view/text-selection layer (`externs.termux`), plus shell bootstrap, PTY natives, a foreground `TerminalService`, and an extra-keys row — with BusyBox binary assets (GPL, see licenses below).
+
+### Shader pack (`XIME.Graphics`)
+
+Four dense GPU-effect classes (~2.3k LOC): `AdaptiveBlur`/`LegacyBlur`, `SwipeBloom`, and `SwipeDash`.
 
 ## Tech Stack
 
@@ -213,7 +227,7 @@ First-party XIME code is Copyright 2026 Xoeris. Vendored components remain under
 
 | Component | License | Notes |
 |---|---|---|
-| Android Terminal Emulator (Jack Palevich, in `XIME.Terminal`) | Apache License 2.0 | See `XIME.Terminal/NOTICE` |
+| Terminal emulation (in `XIME.Terminal`: Termux-derived emulator/view layer plus NOTICE-attributed Android Terminal Emulator code, Jack Palevich) | Apache License 2.0 | See `XIME.Terminal/NOTICE` |
 | BusyBox binary assets (in `XIME.Terminal`) | GNU GPL v2.0 | Copyleft: distributing apps that link `XIME.Terminal` triggers GPL obligations. Source: https://busybox.net <sup>[7]</sup> |
 | erofs-utils v1.9.3 (in `XIME.Tools`) | GPL-2.0+ **OR** MIT (dual, per-file); XIME uses the MIT option | Vendored at `XIME.Tools/src/main/cpp/third_party/erofs-utils/`. Source: https://github.com/erofs/erofs-utils <sup>[8]</sup> |
 | e2fsprogs v1.47.4 libext2fs (in `XIME.Tools`) | LGPL v2 | Linking into non-GPL works permitted. Source: https://github.com/tytso/e2fsprogs <sup>[9]</sup> |
