@@ -15,6 +15,7 @@ XIME is a modular, Java-only Android library ecosystem authored by Xoeris. Inste
 - [Dependency Architecture](#dependency-architecture)
 - [Featured Subsystems](#featured-subsystems)
 - [Tech Stack](#tech-stack)
+- [Design References](#design-references)
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
 - [Third-Party Software & Licenses](#third-party-software--licenses)
@@ -135,6 +136,46 @@ A `java-library` module (no Android SDK) implementing the client-side protocol, 
 - **Media:** AndroidX Media
 - **Native:** ncnn (BSD 3-Clause), RIFE bridge (MIT-modeled), erofs-utils, e2fsprogs (see licenses below)
 
+## Design References
+
+The visual and interaction language of `XIME.UI` (layout grid, type scale, color roles, motion physics) draws on the following reference material. Each image below is hotlinked from its original source and reproduced under fair use for educational/non-commercial documentation, with full attribution.
+
+### App Architecture
+
+![Diagram of a typical app architecture](https://developer.android.com/static/topic/libraries/architecture/images/mad-arch-overview.png)
+
+*Layered app architecture: UI layer, optional domain layer, and data layer with unidirectional data flow — the layering XIME's module graph is designed to serve.*
+**Source:** Android Developers, [Guide to app architecture](https://developer.android.com/topic/architecture) <sup>[1]</sup>
+
+### Typography Scale
+
+![Default typography scale for Material Design 3](https://developer.android.com/static/develop/ui/compose/images/m3-typography.png)
+
+*Default type scale for Material Design 3 — Display, Headline, Title, Body, Label, each in Large/Medium/Small — the scale `XIME.UI` text components follow.*
+**Source:** Android Developers, [Material Design 3 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3) <sup>[13]</sup>
+
+### Color Harmony
+
+**Color wheel, primary, secondary, and tertiary roles.** Relevant to `XIME.UI` theming and its drawable/tint system.
+**Source:** Interaction Design Foundation, [What is Color Harmony?](https://ixdf.org/literature/topics/color-harmony) · © Interaction Design Foundation, CC BY-SA 4.0 <sup>[14]</sup>
+
+### Responsive Layout Grid
+
+**Responsive columns, gutters, and margins.** The grid logic behind `XIME.UI`'s custom layout containers.
+**Source:** Material Design, [Responsive UI](https://m2.material.io/design/layout/responsive-ui.html) <sup>[15]</sup>
+
+### Physics-Based Motion
+
+**Spring and fling animations.** The theory behind `XIME.Animation`'s `MotionCurve` and transition primitives, built on `dynamicanimation`.
+**Source:** Android Developers, [Physics-based motion](https://developer.android.com/guide/topics/graphics/physics-based-animation) <sup>[3]</sup>
+
+### Dynamic Color Extraction
+
+**Palette API for extracting prominent colors from images.** Related to `XIME.UI`/`XIME.Imaging` tinting and adaptive visuals.
+**Source:** Android Developers, [Palette API](https://developer.android.com/develop/ui/views/graphics/palette-colors) <sup>[3]</sup>
+
+> **Note on image licensing:** Hotlinked images are displayed under fair use for academic documentation. Entries referenced by citation only (color wheel, layout grid) are linked rather than embedded, as their hosts restrict direct embedding. Refer to each source link for the original visual.
+
 ## Requirements
 
 - Android Studio (current stable) or command-line Gradle
@@ -210,6 +251,9 @@ XIME is under active development alongside its consumer apps. The module set (no
 10. THL A29 / Tencent. (2017–). ncnn. BSD 3-Clause. https://github.com/Tencent/ncnn
 11. nihui. (2020–). rife-ncnn-vulkan. MIT. https://github.com/nihui/rife-ncnn-vulkan
 12. Palevich, J. (2007–2011). Android Terminal Emulator. Apache License 2.0.
+13. Android Developers. Material Design 3 in Compose (type scale). https://developer.android.com/develop/ui/compose/designsystems/material3
+14. Interaction Design Foundation. What is Color Harmony? https://ixdf.org/literature/topics/color-harmony
+15. Material Design. Responsive UI (layout grid). https://m2.material.io/design/layout/responsive-ui.html
 
 ## License
 
