@@ -1,13 +1,25 @@
 XIME.Terminal
 Copyright 2026 Xoeris
 
+This module contains first-party code (package `xime.terminal`: session
+lifecycle, shell bootstrap, PTY natives, foreground service, extra-keys row)
+licensed under the Apache License, Version 2.0 — see ../../LICENSE.md.
+
 This module includes code derived from:
 
-1. Android Terminal Emulator
-   Copyright (C) 2007-2011 Jack Palevich
+1. Termux terminal-emulator library (terminal emulator, session, view and
+   text-selection classes, vendored here as package `externs.termux`).
+   Copyright (C) Termux contributors (https://github.com/termux/termux-app).
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
+   http://www.apache.org/licenses/LICENSE-2.0
+   (Note: only the terminal-emulator library is used, not the GPL-licensed
+   Termux application itself.)
+
+2. Android Terminal Emulator (original work the above emulator descends from).
+   Copyright (C) 2007-2011 Jack Palevich.
+   Licensed under the Apache License, Version 2.0;
    http://www.apache.org/licenses/LICENSE-2.0
 
 This module bundles binary assets derived from:
@@ -16,3 +28,5 @@ This module bundles binary assets derived from:
    Copyright (C) 1998-2021 Erik Andersen, Rob Landley, Denys Vlasenko and others.
    Licensed under the GNU General Public License, version 2.0.
    Source code is available at https://busybox.net/
+   Consequence: distributing an app that includes XIME.Terminal triggers
+   GPLv2 obligations for the combined work (see ../../LICENSE.md §2.1).
